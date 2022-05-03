@@ -16,6 +16,22 @@ app.use(cors({
 }));
 
 
+mongoose.connect(
+    process.env.MONGO_URL, 
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  );
+  const db = mongoose.connection;
+  db.on("error", console.error.bind(console, "connection error: "));
+  db.once("open", function () {
+    console.log("Connected to MongoDB successfully");
+  });
+
+
+
+
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port ${process.env.PORT}`);
 });
