@@ -13,4 +13,8 @@ git push
 3. If you need to merge your branch with master and push it to remote
 git checkout master
 git merge <ur-branch-name>
-git add . / commit -m" " / git push
+git push
+
+4. If you need to update your own branch (pull from master) 
+git checkout <ur-branch>
+git pull origin/master
