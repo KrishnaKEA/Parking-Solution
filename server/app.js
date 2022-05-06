@@ -10,6 +10,16 @@ import morgan from "morgan";
 import User from "./Model/User.js";
 
 
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
+
+import UserRouter from './Routes/userRoutes.js';
+import ParkingArea from './Routes/parkingAreaRoutes.js';
+
+app.use(express.json());
+app.use(UserRouter);
+app.use(ParkingArea);
+
 app.use(helmet());
 app.use(morgan("tiny")); // display in console HTTP requests
 app.use(
