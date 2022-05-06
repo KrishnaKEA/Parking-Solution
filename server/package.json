@@ -16,7 +16,6 @@
     "express": "^4.18.1",
     "helmet": "^5.0.2",
     "mongoose": "^6.3.2",
-    "mongoose-encryption": "^2.1.2",
     "morgan": "^1.10.0"
   }
 }
