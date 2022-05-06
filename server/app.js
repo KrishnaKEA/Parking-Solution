@@ -7,7 +7,6 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import User from "./Model/User.js";
 
 
 import cookieParser from "cookie-parser";
