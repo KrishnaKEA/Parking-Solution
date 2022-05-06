@@ -1,37 +1,53 @@
-import express from 'express';
-const app = express();
-
-import mongoose from 'mongoose';
-import helmet from 'helmet';
-import cors from "cors"
-import morgan from "morgan"
 import dotenv from "dotenv";
 dotenv.config();
+import express from "express";
+const app = express();
+//import md5 from 'md5';
+import mongoose from "mongoose";
+import helmet from "helmet";
+import cors from "cors";
+import morgan from "morgan";
+import User from "./Model/User.js";
+
+
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
+
+import UserRouter from './Routes/userRoutes.js';
+import ParkingArea from './Routes/parkingAreaRoutes.js';
+
+app.use(express.json());
+app.use(UserRouter);
+app.use(ParkingArea);
 
 app.use(helmet());
-app.use(morgan('tiny')); // display in console HTTP requests
-app.use(cors({
+app.use(morgan("tiny")); // display in console HTTP requests
+app.use(
+  cors({
     credentials: true,
-    origin: 'http://localhost:8080'
-}));
+    origin: "http://localhost:8080",
+  })
+);
 
-
-mongoose.connect(
-    process.env.MONGO_URL, 
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
-  );
-  const db = mongoose.connection;
-  db.on("error", console.error.bind(console, "connection error: "));
-  db.once("open", function () {
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}, err => {
+  if(err){
+    console.log("connection error: ", err);
+  }
+  else{
     console.log("Connected to MongoDB successfully");
-  });
+  }
+}); 
 
+
+
+
+ 
 
 
 
 const server = app.listen(process.env.PORT, () => {
-    console.log(`Server is listening on port ${process.env.PORT}`);
+  console.log(`Server is listening on port ${process.env.PORT}`);
 });
