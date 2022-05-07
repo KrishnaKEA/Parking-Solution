@@ -125,3 +125,7 @@ router.patch("/api/parkingarea/:name/:slots", async (req, res) => {
 });
 
 export default router;
+
+
+
+
