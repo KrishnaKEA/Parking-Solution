@@ -77,6 +77,7 @@ router.post("/api/login", async (req, res) => {
             res.cookie('jwt-OAK', token, {
                 httpOnly: true,
                 maxAge: 5 * 60 * 60 * 1000 // 5 hours
+                
             })
     
             // user
