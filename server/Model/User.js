@@ -11,4 +11,10 @@ const userSchema = new Schema({
 
 const User = model("User", userSchema);
 
+<<<<<<< HEAD
+=======
+
+const User =  model('User', userSchema);
+
+>>>>>>> 6ffba91f719caee3519ff0280f1b5e91e8181a77
 export default User;
