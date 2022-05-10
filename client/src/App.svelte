@@ -1,14 +1,17 @@
 <script>
-	import Login from "./components/Login.svelte"
-	import Home from "./components/Home.svelte"
-	import { Router, Link, Route } from 'svelte-routing';
-
-	
-</script>
-<Router>
-
-	<div class="container">
-		<Route path="/" component={ Home } />
-		<Route path="/login" component={ Login } />
+	import { Router, Route, Link } from "svelte-routing";
+	import Home from "./components/Home.svelte";
+	import Login from "./components/Login.svelte";
+  
+  </script>
+  
+  <Router>
+	<nav>
+	 <Link to="/">Home</Link>
+	 <Link to="login">Login</Link>
+	</nav>
+	<div>
+	 <Route path="/"><Home /></Route>
+	 <Route path="login" component="{Login}" />
 	</div>
-</Router>
+  </Router>
