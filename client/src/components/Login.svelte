@@ -1,73 +1,34 @@
-<script>
-  export let email;
-  export let errMessage;
-  export let password;
-  export let forgetpassword;
-  export let currentUser;
-
-async function signin(email,password){
-  try{
-    const users = await fetch("http://localhost:3000/api/users");
-    users.Map((user)=>{
-      if(user.email === email && user.password === password){
-        currentUser  === user;
-      }
-console.log("User login successfully.")
-    })
-
-  }catch(error){
-    console.log(error)
-  }
-  
-}
-
-
-</script>
-
-
-
-
-<section class="vh-100">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
-
-            <h3 class="mb-5">Login</h3>
-
-            <form class="mx-1 mx-md-4"  on:submit|preventDefault={signin(email,password)}>
-
-              <div class="d-flex flex-row align-items-center mb-4">
-                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                <div class="form-outline flex-fill mb-0">
-                  <input type="text" bind:value={email} id="email" class="form-control" required />
-                  {#if errMessage }
-                  <p class="text-danger">{errMessage}</p>
-                  {/if}
-                  <label class="form-label" for="username">User name</label>
-                </div>
-              </div>
-              <div class="d-flex flex-row align-items-center mb-4">
-                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                <div class="form-outline flex-fill mb-0">
-                  <input type="password" bind:value={password} id="password" class="form-control" required />
-                  <label class="form-label" for="password">Password</label>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                <button type="submit" class="btn btn-primary btn-sm m-2">Submit</button>
-                <button on:click="{forgetpassword}" class="btn btn-primary btn-sm m-2">Forgot password</button>
-
-              </div>
-
-            </form>
-
-
+<!-- component -->
+<section class="py-26 bg-white">
+  <div class="container px-4 mx-auto">
+    <div class="max-w-lg mx-auto">
+      <div class="text-center mb-8">
+        <a class="inline-block mx-auto mb-6" href="#">
+          <img src="nigodo-assets/logo-icon-nigodo.svg" alt="">
+        </a>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Sign in</h2>
           </div>
+      <form action="">
+        <div class="mb-6">
+          <label class="block mb-2 font-extrabold" for="">Email</label>
+          <input class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="email" placeholder="email">
         </div>
-      </div>
+        <div class="mb-6">
+          <label class="block mb-2 font-extrabold" for="">Password</label>
+          <input class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="password" placeholder="**********">
+        </div>
+        <div class="flex flex-wrap -mx-4 mb-6 items-center justify-between">
+          <div class="w-full lg:w-auto px-4 mb-4 lg:mb-0">
+            <label for="">
+              <input type="checkbox">
+              <span class="ml-1 font-extrabold">Remember me</span>
+            </label>
+          </div>
+          <div class="w-full lg:w-auto px-4"><a class="inline-block font-extrabold hover:underline" href="#">Forgot your password?</a></div>
+        </div>
+        <button class="inline-block w-full py-4 px-6 mb-6 text-center text-lg leading-6 text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200">Sign in</button>
+        <p class="text-center font-extrabold">Don&rsquo;t have an account? <a class="text-red-500 hover:underline" href="#">Sign up</a></p>
+      </form>
     </div>
   </div>
 </section>
