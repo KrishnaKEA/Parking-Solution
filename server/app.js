@@ -7,7 +7,12 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:8080",
+  })
+);
 
 import cookieParser from "cookie-parser";
 app.use(cookieParser());
@@ -21,12 +26,7 @@ app.use(ParkingArea);
 
 app.use(helmet());
 app.use(morgan("tiny")); // display in console HTTP requests
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:8080",
-  })
-);
+
 
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
