@@ -5,7 +5,10 @@
 	import { Router, Link, Route } from 'svelte-routing';
 	import Nav from "./components/Nav.svelte";
 
+
 	const baseURL = "http://localhost:3000";
+	let parkings = [];
+
 
 	onMount(async () => {
         try {
@@ -16,9 +19,9 @@
             });
 
 			const parkingarea = await response.json();
-
-			console.log(parkingarea);
-        
+		  parkings = parkingarea.ParkingAreas;
+			console.log(parkings);
+  
             
         } catch (error) {
             console.log(error);
@@ -39,6 +42,16 @@
 		<Route path="/" component={Home} />
 		<Route path="login" component={Login} />
 
+		<ul>
+			{#each parkings as p}
+			<div id="parking">{p.name}
+					{#each p.slot as s}
+			<div id="slot">{s.number}</div>
+		 
+		{/each}
+	</div>
+		{/each}
+		</ul>
 
 	
 </Router>
