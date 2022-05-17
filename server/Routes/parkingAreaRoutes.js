@@ -43,6 +43,7 @@ router.patch(
       const slotNumber = Number(req.params.slotNumber);
       const name = req.params.name;
       const hour = Number(req.params.hour);
+      const milliseconds = 3600000*hour;
 
       Date.prototype.addHours = function (h, gmt) {
         this.setHours(this.getHours() + gmt + h);
@@ -59,17 +60,27 @@ router.patch(
       const parking = await ParkingArea.findOne({ name });
 
       const slot = parking.slot;
+      //const slotI = null;
 
       for (let i = 0; i < slot.length; i++) {
         if (slot[i].number === slotNumber) {
           slot[i].startTime = startDate;
           slot[i].endTime = endDate;
-
+          slot[i].isFree = false;
           slot[slotNumber - 1] = slot[i];
           break;
         }
       }
+      /*
 
+      setTimeout(()=>{
+        slot[slotNumber-1].startTime = null;
+        slot[slotNumber-1].endTime = null;
+        slot[slotNumber-1].isFree = true;
+        Object.assign(parking, slot);
+        parking.save();
+        },milliseconds)
+*/
       Object.assign(parking, slot);
       parking.save();
 
@@ -123,6 +134,46 @@ router.patch("/api/parkingarea/:name/:slots", async (req, res) => {
     return res.status(404).json({ message: "Not found " });
   }
 });
+
+
+
+//***************************************************************************
+
+router.patch(
+  "/api/parkingarea/reservation/:slotNumber/:name",
+  async (req, res) => {
+    try {
+      const slotNumber = Number(req.params.slotNumber);
+      const name = req.params.name;
+   
+
+      const parking = await ParkingArea.findOne({ name });
+
+      const slot = parking.slot;
+      //const slotI = null;
+
+      for (let i = 0; i < slot.length; i++) {
+        if (slot[i].number === slotNumber) {
+          slot[i].startTime = null;
+          slot[i].endTime = null;
+          slot[i].isFree = true;
+          slot[slotNumber - 1] = slot[i];
+          break;
+        }
+      }
+
+        Object.assign(parking, slot);
+        parking.save();
+        
+
+      
+      return res.status(200).json(parking);
+    } catch (error) {
+      console.log(error);
+      return res.status(404).json({ message: "Not found " });
+    }
+  }
+);
 
 export default router;
 
