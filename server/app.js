@@ -1,4 +1,6 @@
 import dotenv from "dotenv";
+
+
 dotenv.config();
 import express from "express";
 const app = express();
@@ -43,10 +45,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
- 
-
-
-
-const server = app.listen(process.env.PORT, () => {
+ app.listen(process.env.PORT, () => {
   console.log(`Server is listening on port ${process.env.PORT}`);
 });
+

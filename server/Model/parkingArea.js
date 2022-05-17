@@ -7,7 +7,9 @@ const parkingAreaSchema = new Schema({
     slot: [{
         number: { type: Number },
         startTime: { type: Date, default: null },
-        endTime: { type: Date, default: null }
+        endTime: { type: Date, default: null },
+        isFree: {type:Boolean,default:true}
+       
    }]
     
 });
