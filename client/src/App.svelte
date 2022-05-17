@@ -1,7 +1,7 @@
 <script>
 	import { Router, Route, Link } from "svelte-routing";
 	import Home from "./components/Home.svelte";
-	import Login from "./components/Login2.svelte";
+	import Login from "./components/Login.svelte";
 	import DisplayParkings from "./components/DisplayParkings.svelte";
 	import BookingDetails from "./components/BookingDetails.svelte";
   
