@@ -4,6 +4,9 @@
 	import Home from "./components/Home.svelte"
 	import { Router, Link, Route } from 'svelte-routing';
 	import Nav from "./components/Nav.svelte";
+	import Nav2 from "./components/Nav2.svelte";
+	import Footer from './components/footer.svelte';
+
 
 	const baseURL = "http://localhost:3000";
 
@@ -33,13 +36,11 @@
 <Router>
 
 	<Nav/>
-	<br>
-	<br>
 	
 		<Route path="/" component={Home} />
 		<Route path="login" component={Login} />
 
-
+	<Footer/>
 	
 </Router>
 </main>
