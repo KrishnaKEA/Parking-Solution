@@ -1,45 +1,23 @@
 <script>
-	import { onMount } from 'svelte';
-	import Login from "./components/Login.svelte"
-	import Home from "./components/Home.svelte"
-	import { Router, Link, Route } from 'svelte-routing';
-	import Nav from "./components/Nav.svelte";
-
-	const baseURL = "http://localhost:3000";
-
-	onMount(async () => {
-        try {
-
-            const response = await fetch(`${baseURL}/api/parkingarea`, {
-            headers: {'Content-Type': 'application/json'},
-            credentials: 'include',
-            });
-
-			const parkingarea = await response.json();
-
-			console.log(parkingarea);
-        
-            
-        } catch (error) {
-            console.log(error);
-        }
-
-    });
-	
-</script>
-
-
-<main>
-<Router>
-
-	<Nav/>
-	<br>
-	<br>
-	
-		<Route path="/" component={Home} />
-		<Route path="login" component={Login} />
-
-
-	
-</Router>
-</main>
+	import { Router, Route, Link } from "svelte-routing";
+	import Home from "./components/Home.svelte";
+	import Login from "./components/Login.svelte";
+	import DisplayParkings from "./components/DisplayParkings.svelte";
+	import BookingDetails from "./components/BookingDetails.svelte";
+  
+  </script>
+  
+  <Router>
+	<nav>
+	 <Link to="/">Home</Link>
+	 <Link to="login">Login</Link>
+	 <Link to="DisplayParkings">Parkings </Link>
+	 
+	</nav>
+	<div>
+	 <Route path="/"><Home /></Route>
+	 <Route path="login" component="{Login}" />
+	 <Route path="DisplayParkings" component="{DisplayParkings}" />
+	 <Route path="BookingDetails" component="{BookingDetails}" />
+	</div>
+  </Router>

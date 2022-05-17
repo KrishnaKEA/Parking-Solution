@@ -1,4 +1,6 @@
 import dotenv from "dotenv";
+
+
 dotenv.config();
 import express from "express";
 const app = express();
@@ -7,7 +9,6 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-
 app.use(
   cors({
     credentials: true,
@@ -44,10 +45,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
- 
-
-
-
-const server = app.listen(process.env.PORT, () => {
+ app.listen(process.env.PORT, () => {
   console.log(`Server is listening on port ${process.env.PORT}`);
 });
+
