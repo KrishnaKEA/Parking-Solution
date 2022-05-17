@@ -1,9 +1,10 @@
 <script>
+import CardParkingArea from "./card-parkingArea.svelte";
 import SearchBar from "./SearchBar.svelte";
 
 
 </script>
 
-<h1>Hello</h1>
 
 <SearchBar/>
+<CardParkingArea/>
