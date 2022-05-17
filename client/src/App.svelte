@@ -1,58 +1,23 @@
 <script>
-	import { onMount } from 'svelte';
-	import Login from "./components/Login.svelte"
-	import Home from "./components/Home.svelte"
-	import { Router, Link, Route } from 'svelte-routing';
-	import Nav from "./components/Nav.svelte";
-
-
-	const baseURL = "http://localhost:3000";
-	let parkings = [];
-
-
-	onMount(async () => {
-        try {
-
-            const response = await fetch(`${baseURL}/api/parkingarea`, {
-            headers: {'Content-Type': 'application/json'},
-            credentials: 'include',
-            });
-
-			const parkingarea = await response.json();
-		  parkings = parkingarea.ParkingAreas;
-			console.log(parkings);
+	import { Router, Route, Link } from "svelte-routing";
+	import Home from "./components/Home.svelte";
+	import Login from "./components/Login.svelte";
+	import DisplayParkings from "./components/DisplayParkings.svelte";
+	import BookingDetails from "./components/BookingDetails.svelte";
   
-            
-        } catch (error) {
-            console.log(error);
-        }
-
-    });
-	
-</script>
-
-
-<main>
-<Router>
-
-	<Nav/>
-	<br>
-	<br>
-	
-		<Route path="/" component={Home} />
-		<Route path="login" component={Login} />
-
-		<ul>
-			{#each parkings as p}
-			<div id="parking">{p.name}
-					{#each p.slot as s}
-			<div id="slot">{s.number}</div>
-		 
-		{/each}
+  </script>
+  
+  <Router>
+	<nav>
+	 <Link to="/">Home</Link>
+	 <Link to="login">Login</Link>
+	 <Link to="DisplayParkings">Parkings </Link>
+	 
+	</nav>
+	<div>
+	 <Route path="/"><Home /></Route>
+	 <Route path="login" component="{Login}" />
+	 <Route path="DisplayParkings" component="{DisplayParkings}" />
+	 <Route path="BookingDetails" component="{BookingDetails}" />
 	</div>
-		{/each}
-		</ul>
-
-	
-</Router>
-</main>
+  </Router>
