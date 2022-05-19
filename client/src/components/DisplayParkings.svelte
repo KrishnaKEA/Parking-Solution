@@ -12,7 +12,40 @@ import {parkingSlot, parkingHours, BaseUrl} from "../store/parkingdata.js"
 onMount( async() => {
     const data = await axios.get(`${BaseUrl}/api/parkingArea`)
     parkings = data.data.ParkingAreas;
-    console.log(parkings)
+    console.log(parkings);
+    
+    
+    parkings.map((parking)=>{
+        const parkingName = parking.name;
+        const slots = parking.slot;
+        
+        slots.map(async(sl)=>{
+            const slotnumber = sl.number;
+           // console.log(sl);
+            const enddate = sl.endTime;
+            if(enddate!==null){
+                const edate =new Date(enddate);
+                
+               const ndate =new Date();
+
+                if(edate < ndate){
+                    console.log("******************");
+                    console.log("FOUND!!!!");
+                    console.log("******************");
+                    const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+
+                }
+            }
+            
+          
+
+        })
+
+
+
+
+    //console.log(parking.slot);
+   })
  
 });
 
@@ -22,7 +55,7 @@ onMount( async() => {
 
     
     function changeColor() {
-       // socket.emit("colorChanged", { data: event.target.value });
+      
        
        const bgcolor = this.style.backgroundColor;
       console.log(bgcolor);
@@ -34,15 +67,11 @@ onMount( async() => {
         const pname = "P"+parkingName[1];
        
         let input = Number(prompt("please enter the number of hours in numbers"));
-        
+    
         while (isNaN(input)){
     //alert("You did not enter a whole number");
     input = prompt("Enter number");
 }
-
-
-
-
         let hours = Number(input);
         hours = Math.floor(hours);
         console.log(hours);
@@ -64,7 +93,7 @@ onMount( async() => {
 async function reserveSlot(hours,parkingName,slotnumber){
 
  const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
-   console.log(res);
+   //console.log(res);
 }
 
 
@@ -72,7 +101,7 @@ async function resetSlot(hours,parkingName,slotnumber){
 setTimeout(async()=>{
     const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
   console.log(res);
-},5000)
+},10000)
 
 }
 
