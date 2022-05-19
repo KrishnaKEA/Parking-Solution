@@ -8,8 +8,8 @@
 <script>
    import { allParkingAreas } from "../store/parkingdata.js";
 
-   export let freeSlots;
-   export let reservedSlots;
+   //export let freeSlots;
+   //export let reservedSlots;
 
 
 
