@@ -11,6 +11,7 @@
     "dev": "concurrently \"rollup -c -w\" \"npm run watch:tailwind\""
   },
   "devDependencies": {
+    "@beyonk/gdpr-cookie-consent-banner": "^9.0.3",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "autoprefixer": "^9.8.8",
