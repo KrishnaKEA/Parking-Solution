@@ -12,12 +12,7 @@ import morgan from "morgan";
 app.use(
   cors({
     credentials: true,
-<<<<<<< HEAD
-    origin: "http://localhost:8080",
-   
-=======
     origin: "http://localhost:8080"
->>>>>>> d2e10e4081f71637870e15ab95e9e61b968ace65
   })
 );
 
