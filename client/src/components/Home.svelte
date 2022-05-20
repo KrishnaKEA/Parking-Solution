@@ -40,6 +40,9 @@ onMount(async () => {
         
         background-color: rgb(209, 209, 209);
     }
+    .container{
+        border: 1px solid;
+    }
 </style>
 
 
