@@ -72,22 +72,6 @@ onMount( async() => {
     //alert("You did not enter a whole number");
     input = prompt("Enter number");
 }
-<<<<<<< HEAD
-
-
-
-
-    let hours = Number(input);
-    hours = Math.floor(hours);
-    console.log(hours);
-    
-    this.disabled = true;
-    const detaildiv = document.querySelector(".details");
-    detaildiv.innerHTML = input + "" + name;
-    console.log(pname)
-    console.log(slotnumber)
-    console.log(hours);
-=======
         let hours = Number(input);
         hours = Math.floor(hours);
         console.log(hours);
@@ -98,7 +82,6 @@ onMount( async() => {
         console.log(pname)
         console.log(slotnumber)
         console.log(hours);
->>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 
 
 
@@ -109,28 +92,16 @@ onMount( async() => {
     
 async function reserveSlot(hours,parkingName,slotnumber){
 
-<<<<<<< HEAD
-    const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
-    console.log(res);
-=======
  const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
    //console.log(res);
->>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 }
 
 
 async function resetSlot(hours,parkingName,slotnumber){
-<<<<<<< HEAD
-    setTimeout(async()=>{
-        const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
-    console.log(res);
-    },5000)
-=======
 setTimeout(async()=>{
     const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
   console.log(res);
 },10000)
->>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 
 }
 
