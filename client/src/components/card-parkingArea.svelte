@@ -1,14 +1,8 @@
 <style>
-<<<<<<< HEAD
-   .container{
-       border: 2px solid;
-   }
-=======
     .container{
       border: 1px solid;
      
     }
->>>>>>> d2e10e4081f71637870e15ab95e9e61b968ace65
 </style>
 
 
