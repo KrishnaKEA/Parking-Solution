@@ -56,21 +56,56 @@
         
         function changeColor() {
           
-           
-           const bgcolor = this.style.backgroundColor;
-          console.log(bgcolor);
-          this.style.backgroundColor = 'red';
-            let name = this.innerText;
-           
-            const parkingName = name.split("P");
-            const slotnumber = Number(parkingName[0]);
-            const pname = "P"+parkingName[1];
-           
-            let input = Number(prompt("please enter the number of hours in numbers"));
-        
-            while (isNaN(input)){
-        //alert("You did not enter a whole number");
-        input = prompt("Enter number");
+
+        })
+
+
+
+
+    //console.log(parking.slot);
+   })
+ 
+});
+
+
+
+
+
+    
+    function changeColor() {
+      
+       
+       const bgcolor = this.style.backgroundColor;
+      console.log(bgcolor);
+      this.style.backgroundColor = 'red';
+        let name = this.innerText;
+       
+        const parkingName = name.split("P");
+        const slotnumber = Number(parkingName[0]);
+        const pname = "P"+parkingName[1];
+       
+        let input = Number(prompt("please enter the number of hours in numbers"));
+    
+        while (isNaN(input)){
+    //alert("You did not enter a whole number");
+    input = prompt("Enter number");
+}
+        let hours = Number(input);
+        hours = Math.floor(hours);
+        console.log(hours);
+      
+        this.disabled = true;
+        const detaildiv = document.querySelector(".details");
+        detaildiv.innerHTML = input + "" + name;
+        console.log(pname)
+        console.log(slotnumber)
+        console.log(hours);
+
+
+
+    reserveSlot(hours,pname,slotnumber);
+    resetSlot(hours,pname,slotnumber);
+
     }
             let hours = Number(input);
             hours = Math.floor(hours);
@@ -84,24 +119,39 @@
             console.log(hours);
     
     
-    
-            reserveSlot(hours,pname,slotnumber);
-           resetSlot(hours,pname,slotnumber);
-    
-        }
-        
-    async function reserveSlot(hours,parkingName,slotnumber){
-    
-     const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
-       //console.log(res);
-    }
-    
-    
-    async function resetSlot(hours,parkingName,slotnumber){
-    setTimeout(async()=>{
-        const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
-      console.log(res);
-    },10000)
+async function reserveSlot(hours,parkingName,slotnumber){
+
+ const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
+   //console.log(res);
+}
+
+
+async function resetSlot(hours,parkingName,slotnumber){
+setTimeout(async()=>{
+    const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+  console.log(res);
+},10000)
+
+}
+
+</script>
+
+<div class="maindiv">
+    <div class="details"></div>
+	{#each parkings as p}
+		<div id="parking">
+            {p.name}
+          
+            {#each p.slot as s}
+
+
+                {#if s.isFree === true}
+                <div id="slot"><button id="btn" style="background-color: green;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {:else}
+                <div id="slot"><button id="btn" style="background-color: red;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {/if}
+
+            
     
     }
     

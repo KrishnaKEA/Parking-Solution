@@ -2,17 +2,11 @@
 	.container {
       margin-top: 30px;
       margin-bottom: 30px;
-	  border: 2px solid;
+	  
       
   	}
 
-	.search1{
-		border: 2px solid;
-		
-	}
-	.c1{
-		border: 2px solid;
-	}
+	
 </style>
 
 
@@ -22,6 +16,10 @@
 <div class="container">
 	<div class="my-20 max-w-5xl mx-auto">
 	
+		<p class="font-parkingTitle font-semibold text-dark text-xl 
+		sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]
+		mb-4
+		">Find a parking spot quickly... </p>
 		<form>   
 			<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
 			<div class="relative">
@@ -42,22 +40,4 @@
 	</div>
 	</div>
 
-<!-- component -->
-<!-- Removed properties: min-h-screen -->
-<div class="container">
-<div class="bg-gray-100 flex justify-center items-center">
-	<div class="container mx-auto bg-indigo-500 rounded-lg p-14">
-		<form>
-			<h1 class="text-center font-bold text-white text-4xl">Find the perfect parking place</h1>
-				<p class="mx-auto font-normal text-sm my-6 max-w-lg">Some kind of text here</p>
-				<div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
-					<input class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Search by address" />
-					<div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
-						<button class="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
-					</div>
-				</div>
-		</form>
-	</div>
-</div>
-</div>
 

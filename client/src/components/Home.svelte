@@ -24,7 +24,7 @@ onMount(async () => {
         parkingsArray = data.ParkingAreas;
         allParkingAreas.set(parkingsArray)
 
-        //console.log(parkingsArray);
+        console.log(parkingsArray[0].slot);
     
         
     } catch (error) {
@@ -37,8 +37,9 @@ onMount(async () => {
 
 
 <style>
-    .container{
-        border: 2px solid;
+    .section-color{
+        
+        background-color: rgb(209, 209, 209);
     }
 </style>
 
@@ -46,8 +47,8 @@ onMount(async () => {
 <SearchBar/>
 
 
-<section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20 bg-[#F3F4F6]">
-    <div class="container">
+<section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
+    <div class=" my-0 max-w-5xl mx-auto">
        <div class="flex flex-wrap -mx-4">
 
 {#if parkingsArray.length === 0}
@@ -58,7 +59,7 @@ onMount(async () => {
         <CardParkingArea parkingAreaInfo = {oneParkingArea} />
        
    
-{/each} 
+    {/each} 
         
    
 
