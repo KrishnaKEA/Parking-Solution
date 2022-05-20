@@ -85,8 +85,8 @@ onMount( async() => {
 
 
 
-        reserveSlot(hours,pname,slotnumber);
-       resetSlot(hours,pname,slotnumber);
+    reserveSlot(hours,pname,slotnumber);
+    resetSlot(hours,pname,slotnumber);
 
     }
     
@@ -113,19 +113,19 @@ setTimeout(async()=>{
 		<div id="parking">
             {p.name}
           
-        {#each p.slot as s}
+            {#each p.slot as s}
 
 
-        {#if s.isFree === true}
-        <div id="slot"><button id="btn" style="background-color: green;" on:click={changeColor}>{s.number}{p.name}</button></div>
-        {:else}
-        <div id="slot"><button id="btn" style="background-color: red;" on:click={changeColor}>{s.number}{p.name}</button></div>
-        {/if}
+                {#if s.isFree === true}
+                <div id="slot"><button id="btn" style="background-color: green;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {:else}
+                <div id="slot"><button id="btn" style="background-color: red;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {/if}
 
-		
-   
-	{/each}
-</div>
+            
+    
+            {/each}
+        </div>
 	{/each}
 </div>
 

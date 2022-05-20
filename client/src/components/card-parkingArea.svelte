@@ -1,6 +1,7 @@
 <style>
     .container{
-        border: 2px solid;
+      border: 1px solid;
+     
     }
 </style>
 
@@ -8,23 +9,13 @@
 <script>
    import { allParkingAreas } from "../store/parkingdata.js";
 
-   //export let freeSlots;
-   //export let reservedSlots;
 
-
-
-    for(let i=0; i<$allParkingAreas.length; i++){
-        
-
-        //const freeSlots = $allParkingAreas[i].slot.filter(parkingArea => parkingArea.slot[i].isFree === true)
-      
-        console.log($allParkingAreas[i].slot);
-    }
-
-  
-
-   
+   export let freeSlots;
    export let parkingAreaInfo;
+
+
+   freeSlots = parkingAreaInfo.slot.filter(slot => slot.isFree === true)
+
 </script>
 
 <!-- component -->
@@ -41,6 +32,7 @@
                      <a
                         href="/"
                         class="
+                        font-parkingTitle
                         font-semibold
                         text-dark text-xl
                         sm:text-[22px]
@@ -53,15 +45,19 @@
                         hover:text-primary
                         "
                         >
-                     <p>{parkingAreaInfo.name}</p>
+                     <p>{parkingAreaInfo.name}</p>  
                      <p>{parkingAreaInfo.location}</p>
-                     </a>
+                     </a> 
                   </h3>
-                  <p class="text-base text-body-color leading-relaxed mb-3">
-                    Total parking slots: {parkingAreaInfo.slot.length}
+                  <p class="font-digits text-right text-lg text-body-color leading-relaxed mb-2 hover:bg-light">
+                    Capacity: [ {parkingAreaInfo.slot.length} ]
                   </p>
-                  <p class="text-base text-body-color leading-relaxed mb-3">
-                     {parkingAreaInfo.slot.isFree}
+                  
+                  <p class="font-digits text-right text-lg text-body-color leading-relaxed mb-2 hover:bg-light hover:text-success">
+                     Free: [ {freeSlots.length} ] <br>
+                  </p>
+                  <p class="font-digits text-right text-lg text-body-color leading-relaxed mb-2 hover:bg-light hover:text-danger">
+                     Occupied: [ {parkingAreaInfo.slot.length-freeSlots.length} ]
                   </p>
                   <a
                      href="/"
@@ -73,7 +69,7 @@
                      rounded-full
                      text-base text-body-color
                      font-medium
-                     hover:border-primary hover:bg-primary hover:text-white
+                     hover:border-primary hover:bg-primary hover:text-white hover:no-underline
                      transition
                      "
                      >
