@@ -72,6 +72,22 @@ onMount( async() => {
     //alert("You did not enter a whole number");
     input = prompt("Enter number");
 }
+<<<<<<< HEAD
+
+
+
+
+    let hours = Number(input);
+    hours = Math.floor(hours);
+    console.log(hours);
+    
+    this.disabled = true;
+    const detaildiv = document.querySelector(".details");
+    detaildiv.innerHTML = input + "" + name;
+    console.log(pname)
+    console.log(slotnumber)
+    console.log(hours);
+=======
         let hours = Number(input);
         hours = Math.floor(hours);
         console.log(hours);
@@ -82,26 +98,39 @@ onMount( async() => {
         console.log(pname)
         console.log(slotnumber)
         console.log(hours);
+>>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 
 
 
-        reserveSlot(hours,pname,slotnumber);
-       resetSlot(hours,pname,slotnumber);
+    reserveSlot(hours,pname,slotnumber);
+    resetSlot(hours,pname,slotnumber);
 
     }
     
 async function reserveSlot(hours,parkingName,slotnumber){
 
+<<<<<<< HEAD
+    const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
+    console.log(res);
+=======
  const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}/${hours}`)
    //console.log(res);
+>>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 }
 
 
 async function resetSlot(hours,parkingName,slotnumber){
+<<<<<<< HEAD
+    setTimeout(async()=>{
+        const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+    console.log(res);
+    },5000)
+=======
 setTimeout(async()=>{
     const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
   console.log(res);
 },10000)
+>>>>>>> a94211d86a69badc8d39807fffbeb1374defc29f
 
 }
 
@@ -113,19 +142,19 @@ setTimeout(async()=>{
 		<div id="parking">
             {p.name}
           
-        {#each p.slot as s}
+            {#each p.slot as s}
 
 
-        {#if s.isFree === true}
-        <div id="slot"><button id="btn" style="background-color: green;" on:click={changeColor}>{s.number}{p.name}</button></div>
-        {:else}
-        <div id="slot"><button id="btn" style="background-color: red;" on:click={changeColor}>{s.number}{p.name}</button></div>
-        {/if}
+                {#if s.isFree === true}
+                <div id="slot"><button id="btn" style="background-color: green;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {:else}
+                <div id="slot"><button id="btn" style="background-color: red;" on:click={changeColor}>{s.number}{p.name}</button></div>
+                {/if}
 
-		
-   
-	{/each}
-</div>
+            
+    
+            {/each}
+        </div>
 	{/each}
 </div>
 

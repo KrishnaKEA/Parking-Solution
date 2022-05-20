@@ -1,5 +1,5 @@
 # MongoDB credentials
-MONGO_URL = mongodb+srv://adminoak:kodak123@oak.pc3em.mongodb.net/oak?retryWrites=true&w=majority
+MONGO_URL = mongodb+srv://<userName>:<password>@oak.pc3em.mongodb.net/<db_name>?retryWrites=true&w=majority
 
 # Secret key 
 TOKEN_KEY = 
