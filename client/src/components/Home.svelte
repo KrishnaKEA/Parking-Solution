@@ -6,6 +6,7 @@ import { onMount } from 'svelte';
 import CardParkingArea from "./card-parkingArea.svelte";
 import SearchBar from "./SearchBar.svelte";
 import { BaseUrl, allParkingAreas } from "../store/parkingdata.js"
+import Spinner from './Spinner.svelte';
 
 
 export let parkingsArray = [];
@@ -54,11 +55,12 @@ onMount(async () => {
        <div class="flex flex-wrap -mx-4">
 
 {#if parkingsArray.length === 0}
-   <h1>Loading...</h1>
+   <Spinner />
 {:else}
  
     {#each parkingsArray as oneParkingArea} 
-        <CardParkingArea parkingAreaInfo = {oneParkingArea}/>
+        <CardParkingArea parkingAreaInfo = {oneParkingArea} />
+       
    
     {/each} 
         
