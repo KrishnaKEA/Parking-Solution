@@ -1,30 +1,32 @@
 <style>
-    .container{
-        border: 2px solid;
-    }
+   .container{
+       border: 2px solid;
+   }
 </style>
 
 
 <script>
-   import { allParkingAreas } from "../store/parkingdata.js";
+  import { allParkingAreas } from "../store/parkingdata.js";
 
-   //export let freeSlots;
-   //export let reservedSlots;
-
-
-
-    for(let i=0; i<$allParkingAreas.length; i++){
-        
-
-        //const freeSlots = $allParkingAreas[i].slot.filter(parkingArea => parkingArea.slot[i].isFree === true)
-      
-        console.log($allParkingAreas[i].slot);
-    }
-
+  export let freeSlots;
+  export let parkingAreaInfo;
   
 
-   
-   export let parkingAreaInfo;
+
+   /* for(let i=0; i<$allParkingAreas.length; i++){
+       
+       //const freeSlots = $allParkingAreas[i].slot.filter(parkingArea => parkingArea.slot[i].isFree === true)
+     
+       console.log($allParkingAreas[i].slot);
+      
+   } */
+
+ freeSlots =parkingAreaInfo.slot.filter(slot => slot.isFree === true);
+
+ console.log(freeSlots);
+
+  
+  
 </script>
 
 <!-- component -->
@@ -32,57 +34,57 @@
 
 <!-- ====== Cards Section Start -->
 
-         
-         <div class=" w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-4">
-            <div class=" bg-white rounded-lg overflow-hidden mb-8">
-               <img src="https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg" alt="image" class="w-full"/>
-               <div class="container rounded-b-lg p-8 sm:p-9 md:p-7 xl:p-9 text-center">
-                  <h3>
-                     <a
-                        href="/"
-                        class="
-                        font-semibold
-                        text-dark text-xl
-                        sm:text-[22px]
-                        md:text-xl
-                        lg:text-[22px]
-                        xl:text-xl
-                        2xl:text-[22px]
-                        mb-4
-                        block
-                        hover:text-primary
-                        "
-                        >
-                     <p>{parkingAreaInfo.name}</p>
-                     <p>{parkingAreaInfo.location}</p>
-                     </a>
-                  </h3>
-                  <p class="text-base text-body-color leading-relaxed mb-3">
-                    Total parking slots: {parkingAreaInfo.slot.length}
-                  </p>
-                  <p class="text-base text-body-color leading-relaxed mb-3">
-                     {parkingAreaInfo.slot.isFree}
-                  </p>
-                  <a
-                     href="/"
-                     class="
-                     inline-block
-                     py-2
-                     px-7
-                     border border-[#E5E7EB]
-                     rounded-full
-                     text-base text-body-color
-                     font-medium
-                     hover:border-primary hover:bg-primary hover:text-white
-                     transition
-                     "
-                     >
-                  View Details
-                  </a>
-               </div>
-            </div>
-         </div>
-         
-         
+        
+        <div class=" w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-4">
+           <div class=" bg-white rounded-lg overflow-hidden mb-8">
+              <img src="https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg" alt="image" class="w-full"/>
+              <div class="container rounded-b-lg p-8 sm:p-9 md:p-7 xl:p-9 text-center">
+                 <h3>
+                    <a
+                       href="/"
+                       class="
+                       font-semibold
+                       text-dark text-xl
+                       sm:text-[22px]
+                       md:text-xl
+                       lg:text-[22px]
+                       xl:text-xl
+                       2xl:text-[22px]
+                       mb-4
+                       block
+                       hover:text-primary
+                       "
+                       >
+                    <p>{parkingAreaInfo.name}</p>
+                    <p>{parkingAreaInfo.location}</p>
+                    </a>
+                 </h3>
+                 <p class="text-base text-body-color leading-relaxed mb-3">
+                   Total parking slots: {parkingAreaInfo.slot.length}
+                 </p>
+                 <p class="text-base text-body-color leading-relaxed mb-3">
+                    {parkingAreaInfo.slot.isFree}
+                 </p>
+                 <a
+                    href="/"
+                    class="
+                    inline-block
+                    py-2
+                    px-7
+                    border border-[#E5E7EB]
+                    rounded-full
+                    text-base text-body-color
+                    font-medium
+                    hover:border-primary hover:bg-primary hover:text-white
+                    transition
+                    "
+                    >
+                 View Details
+                 </a>
+              </div>
+           </div>
+        </div>
+        
+        
 
 <!-- ====== Cards Section End -->

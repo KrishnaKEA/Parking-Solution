@@ -12,8 +12,8 @@ import morgan from "morgan";
 app.use(
   cors({
     credentials: true,
-    //origin: "http://localhost:8080",
-    origin:"http://172.22.144.1:5000",
+    origin: "http://localhost:8080",
+   
   })
 );
 
