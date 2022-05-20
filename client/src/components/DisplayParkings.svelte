@@ -101,7 +101,7 @@ async function resetSlot(hours,parkingName,slotnumber){
 setTimeout(async()=>{
     const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
   console.log(res);
-},10000)
+},hours)
 
 }
 
