@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import Login from "./components/Login.svelte"
+	import Signup from './components/signup.svelte';
 	import Home from "./components/Home.svelte"
 	import { Router, Link, Route } from 'svelte-routing';
 	import Nav from "./components/Nav.svelte";
@@ -19,6 +20,7 @@
 	
 		<Route path="/" component={Home} />
 		<Route path="login" component={Login} />
+		<Route path="signup" component={Signup} />
 		<Route path="DisplayParkings" component={DisplayParkings} />
 	 	<Route path="BookingDetails" component={BookingDetails} />
 
