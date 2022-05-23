@@ -8,7 +8,7 @@
 	import Footer from './components/footer.svelte';
 	import DisplayParkings from './components/DisplayParkings.svelte';
 	import BookingDetails from './components/BookingDetails.svelte';
-
+import Error from './components/Error.svelte';
 	
 </script>
 
@@ -22,7 +22,7 @@
 		<Route path="login" component={Login} />
 		<Route path="signup" component={Signup} />
 		<Route path="DisplayParkings" component={DisplayParkings} />
-	 	<Route path="BookingDetails" component={BookingDetails} />
+	 	<Route path="BookingDetails" component={BookingDetails} /> 
 
 	<Footer/>
 	
