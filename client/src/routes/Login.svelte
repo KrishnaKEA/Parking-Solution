@@ -3,7 +3,7 @@
   <div class="container px-4 mx-auto">
     <div class="max-w-lg mx-auto">
       <div class="text-center mb-8">
-        <a class="inline-block mx-auto mb-6" href="#">
+        <a class="inline-block mx-auto mb-6" href="login">
           <img src="nigodo-assets/logo-icon-nigodo.svg" alt="">
         </a>
         <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Sign in</h2>
