@@ -3,10 +3,10 @@
 import axios from 'axios';
 import { onMount } from 'svelte';
 
-import CardParkingArea from "./card-parkingArea.svelte";
-import SearchBar from "./SearchBar.svelte";
+import CardParkingArea from "../components/card-parkingArea.svelte";
+import SearchBar from "../components/SearchBar.svelte";
 import { BaseUrl, allParkingAreas } from "../store/parkingdata.js"
-import Spinner from './Spinner.svelte';
+import Spinner from '../components/Spinner.svelte';
 
 
 export let parkingsArray = [];
