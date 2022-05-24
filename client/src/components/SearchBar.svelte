@@ -31,10 +31,8 @@
 			</div>
 		</form>
 	
-		<p class="mt-5">This search input component is part of a larger, open-source library of Tailwind CSS components. Learn
-			more
-			by going to the official <a class="text-blue-600 hover:underline"
-				href="https://flowbite.com/docs/getting-started/introduction/" target="_blank">Flowbite Documentation</a>.
+		<p class="mt-5">Choose from more than 30+ locations around Copenhagen
+			
 		</p>
 		<script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 	</div>
