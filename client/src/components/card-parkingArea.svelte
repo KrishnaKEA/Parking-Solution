@@ -7,12 +7,19 @@
 
 
 <script>
-   import { allParkingAreas } from "../store/parkingdata.js";
+  import { allParkingAreas } from "../store/parkingdata.js";
 
 
    export let freeSlots;
    export let parkingAreaInfo;
 
+   /* for(let i=0; i<$allParkingAreas.length; i++){
+       
+       //const freeSlots = $allParkingAreas[i].slot.filter(parkingArea => parkingArea.slot[i].isFree === true)
+     
+       console.log($allParkingAreas[i].slot);
+      
+   } */
 
    freeSlots = parkingAreaInfo.slot.filter(slot => slot.isFree === true)
 
