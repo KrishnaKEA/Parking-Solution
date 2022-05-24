@@ -7,21 +7,23 @@
 
 
 <script>
-  import { allParkingAreas } from "../store/parkingdata.js";
+   import { Link } from "svelte-routing";
+
+   import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
 
 
    export let freeSlots;
    export let parkingAreaInfo;
 
-   /* for(let i=0; i<$allParkingAreas.length; i++){
-       
-       //const freeSlots = $allParkingAreas[i].slot.filter(parkingArea => parkingArea.slot[i].isFree === true)
-     
-       console.log($allParkingAreas[i].slot);
-      
-   } */
 
    freeSlots = parkingAreaInfo.slot.filter(slot => slot.isFree === true)
+
+   const viewDetails = () => {
+
+      selectedParkingArea.set(parkingAreaInfo);
+      console.log($selectedParkingArea);
+      console.log($selectedParkingArea.slot);
+   }
 
 </script>
 
@@ -66,8 +68,9 @@
                   <p class="font-digits text-right text-lg text-body-color leading-relaxed mb-2 hover:bg-light hover:text-danger">
                      Occupied: [ {parkingAreaInfo.slot.length-freeSlots.length} ]
                   </p>
-                  <a
-                     href="/"
+                  
+                  <Link to = "parkingslots" >
+                  <button on:click={viewDetails}
                      class="
                      inline-block
                      py-2
@@ -81,7 +84,9 @@
                      "
                      >
                   View Details
-                  </a>
+               </button>
+               </Link>
+            
                </div>
             </div>
          </div>
