@@ -21,7 +21,7 @@ import morgan from "morgan";
 app.use(
   cors({
     credentials: true,
-    origin: "*"
+    origin: "http://localhost:8080"
   })
 );
 
@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 import UserRouter from './Routes/userRoutes.js';
 import ParkingArea from './Routes/parkingAreaRoutes.js';
-import { Socket } from "socket.io";
+//import { Socket } from "socket.io";
 
 app.use(express.json());
 app.use(UserRouter);
