@@ -1,3 +1,18 @@
+<script>
+import { BaseUrl } from "../store/parkingdata.js"
+import { login } from "../store/utils.js";
+
+let email = '';
+let password = '';
+
+
+
+
+
+
+</script>
+
+
 <!-- component -->
 <section class="py-26 bg-white">
   <div class="container px-4 mx-auto">
@@ -8,14 +23,14 @@
         </a>
         <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Sign in</h2>
           </div>
-      <form action="">
+      <form on:submit|preventDefault={login}>
         <div class="mb-6">
           <label class="block mb-2 font-extrabold" for="">Email</label>
-          <input class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="email" placeholder="email">
+          <input bind:value={email} class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="email" placeholder="email">
         </div>
         <div class="mb-6">
           <label class="block mb-2 font-extrabold" for="">Password</label>
-          <input class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="password" placeholder="**********">
+          <input bind:value={password} class="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="password" placeholder="**********">
         </div>
         <div class="flex flex-wrap -mx-4 mb-6 items-center justify-between">
           <div class="w-full lg:w-auto px-4 mb-4 lg:mb-0">

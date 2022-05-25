@@ -1,5 +1,6 @@
 <script>
 import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
+export let location;
 
 </script>
 
