@@ -18,3 +18,6 @@ git push
 4. If you need to update your own branch (pull from master) 
 git checkout 'ur-branch'
 git pull origin master
+
+
+#List of endpoints
