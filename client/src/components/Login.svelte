@@ -1,13 +1,22 @@
 <script>
 import { BaseUrl } from "../store/parkingdata.js"
-import { login } from "../store/utils.js";
 
 let email = '';
 let password = '';
 
-
-
-
+const login = async () => {
+    await fetch(`${BaseUrl}/api/login`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({
+            email: email.toLowerCase(),
+            password: password
+        })
+    });
+    
+    location.replace("/");
+}
 
 
 </script>

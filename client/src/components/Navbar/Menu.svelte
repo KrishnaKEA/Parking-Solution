@@ -11,6 +11,7 @@
 
 <nav class="hidden text-gray-500 uppercase text-bold sm:block">
     
+        <Link to = "/" class="p-2 font-parkingTitle hover:text-red-900">Home</Link>
         <Link to = "map" class="p-2 font-parkingTitle hover:text-red-900">Map</Link>
         <Link to = "about" class="p-2 font-parkingTitle hover:text-red-900">About</Link>
         <Link to = "contact" class="p-2 font-parkingTitle hover:text-red-900">Contact</Link>

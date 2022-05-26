@@ -1,25 +1,27 @@
 <script>
 	import { onMount } from 'svelte';
-	import Login from "./components/Login.svelte"
+	import Error from "./components/Error.svelte";
+	import Login from "./components/Login.svelte";
 	import Signup from './components/signup.svelte';
-	import Home from "./components/Home.svelte"
+	import Home from "./components/Home.svelte";
 	import { Router, Link, Route } from 'svelte-routing';
-	import Nav from "./components/Nav.svelte";
 	import Footer from './components/footer.svelte';
 	import DisplayParkings from './components/DisplayParkings.svelte';
 	import BookingDetails from './components/BookingDetails.svelte';
 	import SelectedParking from './components/selectedParking.svelte';
+	import SelectedArea from './components/selectedArea.svelte';
 	import CopenhagenMap from './components/CopenhagenMap.svelte';
 
 	import {BaseUrl, authenticated, authenticatedUser} from "./store/parkingdata.js";
 
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
+
 	
 	//Sidebar
 	let open = false;
 	
-	// get token
+	// checking token
     //Get user data and save in store
     onMount(async () => {
         try {
@@ -61,13 +63,16 @@
 
 	
 	
-
+		<Route component="{Error}" />
 
 		<Route path="/" component={Home} />
 		<Route path="login" component={Login} />
 		<Route path="logout" component={Signup} />
 		<Route path="signup" component={Signup} />
+
+		<Route path="parkings/:area" component={SelectedArea} />
 		<Route path="parkingslots" component={SelectedParking} />
+
 		<Route path="DisplayParkings" component={DisplayParkings} />
 	 	<Route path="BookingDetails" component={BookingDetails} />
 		<Route path="cph" component={CopenhagenMap} />
