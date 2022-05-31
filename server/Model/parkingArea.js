@@ -4,6 +4,8 @@ const { Schema, model} = mongoose;
 const parkingAreaSchema = new Schema({
     name: { type: String, unique: true },
     location: { type: String },
+    lat: { type: Number },
+    lon: { type: Number },
     slot: [{
         number: { type: Number },
         startTime: { type: Date, default: null },

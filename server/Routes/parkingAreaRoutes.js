@@ -95,12 +95,14 @@ router.patch(
 // Admin // Create a Parking Area
 router.post("/api/parkingarea", async (req, res) => {
   try {
-    const { name, location, slot } = req.body;
+    const { name, location, lat, lon, slot } = req.body;
 
     // Create parking in our database
     const parking = await ParkingArea.create({
       name: name,
       location: location,
+      lat: lat,
+      lon: lon,
       slot: slot,
     });
 
