@@ -5,8 +5,9 @@ import { onMount } from 'svelte';
 
 import CardParkingArea from "../components/card-parkingArea.svelte";
 import SearchBar from "../components/SearchBar.svelte";
-import { BaseUrl, allParkingAreas } from "../store/parkingdata.js"
+import { BaseUrl, allParkingAreas, cphAreaNames } from "../store/parkingdata.js"
 import Spinner from '../components/Spinner.svelte';
+import CopenhagenMap from '../components/Map/CopenhagenMap.svelte';
 
 
 export let parkingsArray = [];
@@ -37,9 +38,7 @@ onMount(async () => {
 
 <style>
    
-    .container{
-        border: 1px solid;
-    }
+
    
 </style>
 
