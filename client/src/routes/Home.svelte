@@ -10,17 +10,13 @@
     import { selectArea } from "../store/utils.js"
     
     
-  
     
     
     
-    </script>
+</script>
+<link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />    
     
-    
-    <style>
-       
-       
-    </style>
+   
     
     
     <SearchBar/>
@@ -33,7 +29,7 @@
                    
                     <div class="grid grid-rows py-3 ml-20 "> 
                         
-                            <Link to = "parkings/:{$cphAreaNames.a}"><button on:click={selectArea($cphAreaNames.a)} class="inline-block py-1 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary  hover:no-underline transition "> 
+                            <Link to = "parkings/:{$cphAreaNames.a}"><button on:click={selectArea($cphAreaNames.a)} class="inline-block py-1 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-white hover:no-underline transition "> 
                             A - {$cphAreaNames.a}</button></Link>
                             <div><Link to = "parkings/:{$cphAreaNames.b}"><button on:click={selectArea($cphAreaNames.b)} class="inline-block py-1 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-white hover:no-underline transition "> 
                                 B - {$cphAreaNames.b}</button></Link></div>
@@ -62,8 +58,13 @@
         </div>
     </section>
     
+
     
     
     
     
     
+    <style>
+       
+       
+    </style>
