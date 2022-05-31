@@ -1,4 +1,4 @@
-import Router from "express";
+import Router, { application } from "express";
 const router = Router();
 
 import ParkingArea from "../Model/parkingArea.js";
@@ -174,6 +174,8 @@ router.patch(
     }
   }
 );
+
+
 
 export default router;
 

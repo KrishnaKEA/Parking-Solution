@@ -4,6 +4,8 @@ const router = Router();
 import User from "../Model/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import nodemailer from "nodemailer"
+
 
 
 // Get all users
@@ -49,7 +51,9 @@ router.post("/api/register", async (req, res) => {
         });
 
         // return new user
+        sendmail(email,plateNumber);
         return res.status(201).json(user);
+
     } catch (err) {
             console.log(err);
         }
@@ -139,9 +143,30 @@ router.patch("/api/user/:email", async (req, res) => {
         
 
 }); 
+/*************************************************************** */
 
-
-
+function sendmail(email,plateNumber){
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'testkea123@gmail.com',
+            pass: 'krishnaamen123'
+        }
+    });
+    let mailDetails = {
+        from: 'testkea123@gmail.com',
+        to: `${email}`,
+        subject: 'Mail confirmation from Parking app',
+        text: `You have successfully created a user account with email-  ${email} and numberplate ${plateNumber}`
+    };
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
+}
 
 
 
