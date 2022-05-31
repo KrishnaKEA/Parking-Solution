@@ -79,36 +79,7 @@
             </a>
         </div>
 
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Customization
-            </div>
-
-            <!-- Links -->
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuration
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Theme Configuration
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Breakpoints
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Colors
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Spacing
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuring Variants
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Plugins
-            </a>
-        </div>
+        
 
         <!-- Col-3 -->
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
