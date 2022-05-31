@@ -110,8 +110,8 @@ const selectArea = async (area) => {
             </div>
         </div>
       </div>
-    </div>
-  </div>
+   
+
 </section>
 
 <section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
@@ -128,8 +128,4 @@ const selectArea = async (area) => {
   </div>
 </section>
 
-<style>
-  .container {
-    border: 1px solid;
-  }
-</style>
+
