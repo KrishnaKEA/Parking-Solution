@@ -1,5 +1,6 @@
 import {writable} from "svelte/store"
 export let selectedArea = writable(null); // location  (like norrebro/center/etc.)
+export let searchKeyword = writable(null); // searchKeyword from Search Bar
 export let parkingHours = writable(null);
 export let parkingSlot = writable(null);
 export const BaseUrl = "http://localhost:3000";
@@ -16,7 +17,7 @@ export let allParkingAreas = writable(null); // many parkings
 
 
 export let cphAreaNames = writable({
-    "a": "Indre By",
+    "a": "Centrum",
     "b": "Osterbro",
     "c": "Norrebro",
     "d": "Bispebjerg",
@@ -24,7 +25,7 @@ export let cphAreaNames = writable({
     "f": "Vanlose",
     "g": "Valby",
     "h": "Vesterbro",
-    "i": "Amager Vest",
-    "j": "Amager Est",
+    "i": "Amager-Vest",
+    "j": "Amager-Est",
     "k": "Frederiksberg",
 });
