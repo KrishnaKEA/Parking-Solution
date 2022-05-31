@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { onMount } from 'svelte';
+import { Link } from "svelte-routing";
 
 import CardParkingArea from "../components/card-parkingArea.svelte";
 import SearchBar from "../components/SearchBar.svelte";
