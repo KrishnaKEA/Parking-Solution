@@ -18,8 +18,7 @@
 	import MapComponent from './components/Map/MapComponent.svelte';
 
 	
-
-
+	
 	//Sidebar
 	let open = false;
 	
@@ -54,13 +53,11 @@
 
 	
 	
-	
-</script>
-
+</script>	
 
 
 <main>
-<Router >
+<Router>
 
 	<Sidebar bind:open/>
 	<Navbar bind:sidebar={open}/>

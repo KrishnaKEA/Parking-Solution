@@ -16,19 +16,16 @@ export let parkingsArray = [];
 
 onMount(async () => {
     try {
+      const response = await fetch(`${BaseUrl}/api/parkingarea`, {
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
 
-        const response = await fetch(`${BaseUrl}/api/parkingarea`, {
-        headers: {'Content-Type': 'application/json'},
-        credentials: 'include',
-        });
-
-        const data = await response.json();
-        parkingsArray = data.ParkingAreas;
-        allParkingAreas.set(parkingsArray)
-    
-        
+      const data = await response.json();
+      parkingsArray = data.ParkingAreas;
+      allParkingAreas.set(parkingsArray);
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
 
 });
@@ -112,28 +109,23 @@ const selectArea = async (area) => {
                
             </div>
         </div>
-    </div>
+      </div>
+   
+
 </section>
 
-
-
-
 <section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
-    <div class=" my-0 max-w-5xl mx-auto">
-       <div class="flex flex-wrap -mx-4">
-
-            {#if parkingsArray.length === 0}
-                <Spinner />
-            {:else}
-            
-                {#each parkingsArray as oneParkingArea} 
-                    <CardParkingArea parkingAreaInfo = {oneParkingArea} />
-                {/each} 
-            
-            {/if}
-
-        </div>
+  <div class=" my-0 max-w-5xl mx-auto">
+    <div class="flex flex-wrap -mx-4">
+      {#if parkingsArray.length === 0}
+        <Spinner />
+      {:else}
+        {#each parkingsArray as oneParkingArea}
+          <CardParkingArea parkingAreaInfo={oneParkingArea} />
+        {/each}
+      {/if}
     </div>
+  </div>
 </section>
 
 
