@@ -5,14 +5,13 @@ import CardParkingArea from "../components/card-parkingArea.svelte";
 import Spinner from '../components/Spinner.svelte';
 
 
-console.log($selectedArea); // ?????
-
 </script>
 
 
 <section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
     <div class=" my-0 max-w-5xl mx-auto">
-       <div class="flex flex-wrap -mx-4">
+        <div class="py-5 "><h1>Text</h1></div>
+        <div class="flex flex-wrap -mx-4">
 
             {#if !$selectedArea } 
                 <Spinner />

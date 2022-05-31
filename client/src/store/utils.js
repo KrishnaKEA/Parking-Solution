@@ -1,4 +1,4 @@
-import { BaseUrl } from "../store/parkingdata.js";
+import { BaseUrl, selectedArea } from "../store/parkingdata.js";
 
 
 // Logout function
@@ -12,7 +12,24 @@ export const logout = async () => {
 
 }
 
+// Select area (buttons) 
+export const selectArea = async (area) => {
+    try {
 
+        const response = await fetch(`${BaseUrl}/api/parkingarea/${area}`);
+
+        const data = await response.json();
+        
+        selectedArea.set(data.ParkingAreas);
+        
+        console.log(data.ParkingAreas);
+
+
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
 
 
 

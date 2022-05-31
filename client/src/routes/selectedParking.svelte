@@ -1,6 +1,7 @@
 <script>
 import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
 
+console.log($selectedParkingArea);
 
 </script>
 
