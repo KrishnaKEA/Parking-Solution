@@ -14,10 +14,10 @@ svg {
     fill:none;stroke:#E95E0F;stroke-width:1.5;
 }
 #C3 {
-    fill:#fffffe;
+    fill:#221E1A;
 }
 #C4 {
-    fill:#ffffff;stroke:#E95E0F;stroke-width:1.5;
+    fill:#221E1A;stroke:#E95E0F;stroke-width:1.5;
 }
 #C5 {
     fill:#feffff;
@@ -30,16 +30,16 @@ svg {
 }
 
 
-#C0:hover {
-    fill:#322c26;
-}
+
 
 #C4:hover {
-    fill:#221E1A;
+    fill:#45556c;
+	transition: 0.4s;
 }
 
 #C3:hover {
-    fill:#221E1A;
+    fill:#45556c;
+	transition: 0.4s;
 }
 
 
@@ -51,9 +51,10 @@ svg {
     const clicked = () => {
         alert("hello")
     }
+	//viewBox="17 21 870 870"
 </script>
 
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="580px" viewBox="17 21 870 870" style="enable-background:new 17 21 870 870;" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="580px" viewBox="50 21 800 1000" style="enable-background:new 17 21 870 870; " xml:space="preserve">
 <rect style="fill:#FFFFFF;" width="40" height="40"/>
 
 <path id="C0" d="M0,803.371l14.6,2.329l12,1.2l26.6,4.1l2.2,0.801l0.4,15.499l4.6,7.601l0.8-0.6l-4.5-7.5l-0.3-13.7l4.1-0.801
@@ -87,7 +88,7 @@ svg {
 	l-2.199,0.7l-0.7-0.9l-10.101,2.9l-0.6-1.7l8.5-2.2l-1.101-3.8l5.601-2.1l4,4.9l4.9-4.2l1.3,1l2-1.4l-7-11.1l-11.8-1.1l-4.8-2.1
 	L555,73.9l-0.6-5.3l0.5-2.4l2.6-1.1l0.5,0.8l0.8-0.2l-2.8-9.2l1.601-4.7l1.199-10.1l5.301-24.1l0.699-2l1.4-2.1L572.983,0H0V803.371
 	z"/>
-<path id="C3" d="M553.9,124.3l-9.4,1.4l-3-1.4l-0.199-9.8l-1.801-9.8l-2.2-7.6l-1.199-7.4l1.6-6.4L517.1,78.5l-7.999-2
+<path  id="C3" d="M553.9,124.3l-9.4,1.4l-3-1.4l-0.199-9.8l-1.801-9.8l-2.2-7.6l-1.199-7.4l1.6-6.4L517.1,78.5l-7.999-2
 	l-1.2-3.399l-0.2-1.801l-0.2-5.399l-2.199-0.601l-0.601-3.2l-5-2.6l1,9l-9.2-0.6l-5.6,38.2l-0.4,13.999l-21,1.001l-4.6,0.199
 	l-0.4-3.199l-3.4-0.2H452.7l-3.8-1.601l-3.801-0.8h-3l-7-1.6l-7.4-0.801H423.5l-0.8,4.4l-5.2-1.2l-4.8-3.6l-2.799-7.8l-1.6-3l-5.6-3
 	l-9-4.2l-4.2,0.2l-9.801,0.6l-6.8-0.8l-7,2.8l-8.2-4l-12.4-4.2l-5.25,0.7l-2.55,3l-3.75,6l-9.15,21.3l-3.9,6.45l-1.5,6l-2.25,2.399

@@ -8,15 +8,16 @@
 	import Footer from './components/footer.svelte';
 	import DisplayParkings from './routes/DisplayParkings.svelte';
 	import BookingDetails from './routes/BookingDetails.svelte';
-	import SelectedParking from './components/selectedParking.svelte';
-	import SelectedArea from './components/selectedArea.svelte';
-	import CopenhagenMap from './components/CopenhagenMap.svelte';
+	import SelectedParking from './routes/selectedParking.svelte';
+	import SelectedArea from './routes/selectedArea.svelte';
 
 	import {BaseUrl, authenticated, authenticatedUser} from "./store/parkingdata.js";
 
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
+	import MapComponent from './components/Map/MapComponent.svelte';
 
+	
 	
 	//Sidebar
 	let open = false;
@@ -61,7 +62,7 @@
 	<Sidebar bind:open/>
 	<Navbar bind:sidebar={open}/>
 
-	
+
 	
 		<Route component="{Error}" />
 
@@ -75,7 +76,12 @@
 
 		<Route path="DisplayParkings" component={DisplayParkings} />
 	 	<Route path="BookingDetails" component={BookingDetails} />
-		<Route path="cph" component={CopenhagenMap} />
+		<Route path="map" component={MapComponent} />
+		
+
+
+
+
 
 	<Footer/>
 	
