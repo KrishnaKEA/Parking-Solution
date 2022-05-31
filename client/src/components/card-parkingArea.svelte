@@ -10,6 +10,7 @@
    import { Link } from "svelte-routing";
 
    import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
+   
 
 
    export let freeSlots;
@@ -18,6 +19,7 @@
 
    freeSlots = parkingAreaInfo.slot.filter(slot => slot.isFree === true)
 
+   // View details button from Parking-Area-Card
    const viewDetails = () => {
 
       selectedParkingArea.set(parkingAreaInfo);

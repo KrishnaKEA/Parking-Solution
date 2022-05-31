@@ -105,7 +105,7 @@ router.post("/api/logout", async (req, res) => {
 router.get("/api/user", async (req, res) => {
     try {
         const cookie = req.cookies['jwt-OAK']
-        console.log(cookie);
+        
 
         const credentials = jwt.verify(cookie, process.env.SECRET_KEY)
 

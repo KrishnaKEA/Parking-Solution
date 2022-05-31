@@ -3,18 +3,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css">
 
 
-<div class="flex">
-    <span class="text-center font-bold my-20 mx-auto">
-       Some kind of content here
-
-        <hr class="my-4">
-
-        <a href="https://egoistdeveloper.github.io/twcss-to-sass-playground/" target="_blank" class="text-blue-600">
-            part of footer component
-        </a>
-    </span>
-</div>
-
 <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10">
     <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
         <!-- Col-1 -->
