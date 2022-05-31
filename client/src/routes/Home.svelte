@@ -6,7 +6,7 @@ import { Link } from "svelte-routing";
 
 import CardParkingArea from "../components/card-parkingArea.svelte";
 import SearchBar from "../components/SearchBar.svelte";
-import { BaseUrl, allParkingAreas, cphAreaNames } from "../store/parkingdata.js"
+import { BaseUrl, allParkingAreas, cphAreaNames, selectedArea } from "../store/parkingdata.js"
 import Spinner from '../components/Spinner.svelte';
 import CopenhagenMap from '../components/Map/CopenhagenMap.svelte';
 

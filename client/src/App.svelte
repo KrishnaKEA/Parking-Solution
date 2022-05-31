@@ -8,8 +8,8 @@
 	import Footer from './components/footer.svelte';
 	import DisplayParkings from './routes/DisplayParkings.svelte';
 	import BookingDetails from './routes/BookingDetails.svelte';
-	import SelectedParking from './components/selectedParking.svelte';
-	import SelectedArea from './components/selectedArea.svelte';
+	import SelectedParking from './routes/selectedParking.svelte';
+	import SelectedArea from './routes/selectedArea.svelte';
 
 	import {BaseUrl, authenticated, authenticatedUser} from "./store/parkingdata.js";
 
