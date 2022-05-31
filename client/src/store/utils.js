@@ -1,4 +1,5 @@
 import { BaseUrl, selectedArea } from "../store/parkingdata.js";
+import { searchKeyword } from "../store/parkingdata.js";
 
 
 // Logout function
@@ -21,7 +22,8 @@ export const selectArea = async (area) => {
         const data = await response.json();
         
         selectedArea.set(data.ParkingAreas);
-        
+        searchKeyword.set(area);
+
         console.log(data.ParkingAreas);
 
 

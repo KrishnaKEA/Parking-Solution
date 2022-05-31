@@ -57,7 +57,7 @@
                         "
                         >
                      <p>{parkingAreaInfo.name}</p>  
-                     <p>{parkingAreaInfo.location}</p>
+                     <p>{parkingAreaInfo.location.split(" ")[0]}</p>
                      </a> 
                   </h3>
                   <p class="font-digits text-right text-lg text-body-color leading-relaxed mb-2 hover:bg-light">

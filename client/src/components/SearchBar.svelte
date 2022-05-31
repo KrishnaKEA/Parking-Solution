@@ -1,6 +1,7 @@
 <script>
 	import { Link } from "svelte-routing";
 	import { selectArea } from "../store/utils.js";
+	
 
 
 	let input = '';
