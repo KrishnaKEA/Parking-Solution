@@ -30,14 +30,11 @@ svg {
 }
 
 
-#C0:hover {
-    fill:#9eacc0;
-	transition: 0.4s;
-}
+
 
 #C4:hover {
     fill:#45556c;
-	transition: 0.6s;
+	transition: 0.4s;
 }
 
 #C3:hover {
@@ -57,7 +54,7 @@ svg {
 	//viewBox="17 21 870 870"
 </script>
 
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="580px" viewBox="50 21 800 1000" style="enable-background:new 17 21 870 870; stroke:gray;stroke-width:1;" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="580px" viewBox="50 21 800 1000" style="enable-background:new 17 21 870 870; " xml:space="preserve">
 <rect style="fill:#FFFFFF;" width="40" height="40"/>
 
 <path id="C0" d="M0,803.371l14.6,2.329l12,1.2l26.6,4.1l2.2,0.801l0.4,15.499l4.6,7.601l0.8-0.6l-4.5-7.5l-0.3-13.7l4.1-0.801

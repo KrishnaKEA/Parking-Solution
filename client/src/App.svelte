@@ -1,23 +1,25 @@
 <script>
 	import { onMount } from 'svelte';
 	import Error from "./components/Error.svelte";
-	import Login from "./components/Login.svelte";
-	import Signup from './components/signup.svelte';
-	import Home from "./components/Home.svelte";
+	import Login from "./routes/Login.svelte";
+	import Signup from './routes/Signup.svelte';
+	import Home from "./routes/Home.svelte";
 	import { Router, Link, Route } from 'svelte-routing';
 	import Footer from './components/footer.svelte';
-	import DisplayParkings from './components/DisplayParkings.svelte';
-	import BookingDetails from './components/BookingDetails.svelte';
+	import DisplayParkings from './routes/DisplayParkings.svelte';
+	import BookingDetails from './routes/BookingDetails.svelte';
 	import SelectedParking from './components/selectedParking.svelte';
 	import SelectedArea from './components/selectedArea.svelte';
-	import CopenhagenMap from './components/CopenhagenMap.svelte';
 
 	import {BaseUrl, authenticated, authenticatedUser} from "./store/parkingdata.js";
 
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
+	import MapComponent from './components/Map/MapComponent.svelte';
 
 	
+
+
 	//Sidebar
 	let open = false;
 	
@@ -61,7 +63,7 @@
 	<Sidebar bind:open/>
 	<Navbar bind:sidebar={open}/>
 
-	
+
 	
 		<Route component="{Error}" />
 
@@ -75,7 +77,12 @@
 
 		<Route path="DisplayParkings" component={DisplayParkings} />
 	 	<Route path="BookingDetails" component={BookingDetails} />
-		<Route path="cph" component={CopenhagenMap} />
+		<Route path="map" component={MapComponent} />
+		
+
+
+
+
 
 	<Footer/>
 	

@@ -1,14 +1,13 @@
 <script>
 
-import axios from 'axios';
 import { onMount } from 'svelte';
 import { Link } from "svelte-routing";
 
-import CardParkingArea from "./card-parkingArea.svelte";
-import SearchBar from "./SearchBar.svelte";
+import CardParkingArea from "../components/card-parkingArea.svelte";
+import SearchBar from "../components/SearchBar.svelte";
 import { BaseUrl, allParkingAreas, cphAreaNames, selectedArea } from "../store/parkingdata.js"
-import Spinner from './Spinner.svelte';
-import CopenhagenMap from './CopenhagenMap.svelte';
+import Spinner from '../components/Spinner.svelte';
+import CopenhagenMap from '../components/Map/CopenhagenMap.svelte';
 
 
 let parkingsArray = [];
@@ -65,7 +64,7 @@ const selectArea = async (area) => {
 <section class=" pt-0 lg:pt-[100px] pb-5 lg:pb-5">
     <div class=" my-0 max-w-4xl mx-auto">
        <div class="flex flex-wrap -mx-4">
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-2 gap-5">
                 <div> <CopenhagenMap/></div>
                 <div class="grid grid-rows gap-5"> 
                     <div class="grid grid-cols-2">
