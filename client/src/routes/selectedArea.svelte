@@ -1,8 +1,8 @@
 <script>
 import { onMount } from 'svelte';
 import { selectedArea, BaseUrl } from '../store/parkingdata.js';
-import CardParkingArea from "../components./components/card-parkingArea.svelte";
-import Spinner from '../components./components/Spinner.svelte';
+import CardParkingArea from "../components/card-parkingArea.svelte";
+import Spinner from '../components/Spinner.svelte';
 
 
 console.log($selectedArea); // ?????
