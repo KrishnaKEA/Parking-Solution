@@ -2,7 +2,12 @@
     import { onMount } from 'svelte';
     import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
-    import { BaseUrl, allParkingAreas } from '../../store/parkingdata.js';
+    import { BaseUrl, allParkingAreas, chatMessagesArray } from '../../store/parkingdata.js';
+
+    console.log($chatMessagesArray);
+
+    import Spinner from '../Spinner.svelte';
+    import CardParkingArea from "../card-parkingArea.svelte";
 
     let parkingsArray = [];
 
@@ -75,16 +80,18 @@
 }
 </style>
 
-<div class="my-20 max-w-6xl mx-auto">
-    <p class="font-parkingTitle font-semibold text-dark text-xl ml-12">Overview of all Parking Ares </p>
+<div class="my-20 max-w-6xl mx-auto ">
+    <p class="font-parkingTitle font-semibold text-dark text-xl ml-12 ">Overview of all Parking Ares </p>
     <div class="flex-container">
 
 
-        <div class="flex-item-left">
+        <div class="flex-item-left mb-6">
             <Map  lat={55.68} lon={12.58} zoom={10.6}>
 
                 {#each parkingsArray as oneParkingArea} 
-                   <MapMarker lat={randomLat()} lon={randomLon()} label="{oneParkingArea.name} | Capacity: {oneParkingArea.slot.length}"/>  
+                {#if oneParkingArea.lat > 0 }
+                   <MapMarker lat={oneParkingArea.lat} lon={oneParkingArea.lon} label="{oneParkingArea.name} | Capacity: {oneParkingArea.slot.length}"/>  
+                {/if}   
                 {/each} 
 
             </Map>
@@ -92,14 +99,37 @@
         </div>
 
         
-        <div class="flex-item-right">
+        <div class="flex-item-right mb-6">
             
-            Any content here (maybe filters)
+            {#each parkingsArray as oneParkingArea} 
+                <a href="/" class=" font-semibold text-dark text-sm mb-4 block hover:text-primary">
+                    <p>{oneParkingArea.name} | {oneParkingArea.location}</p>  
+                   
+                </a>   
+            {/each} 
             
 
         </div>
         
     </div>
 </div>
+
+<section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
+    <div class=" my-0 max-w-5xl mx-auto">
+       <div class="flex flex-wrap -mx-4">
+
+            {#if parkingsArray.length === 0}
+                <Spinner />
+            {:else}
+            
+                {#each parkingsArray as oneParkingArea} 
+                    <CardParkingArea parkingAreaInfo = {oneParkingArea} />
+                {/each} 
+            
+            {/if}
+
+        </div>
+    </div>
+</section>
   
     
