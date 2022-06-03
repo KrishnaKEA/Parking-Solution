@@ -20,10 +20,10 @@ git checkout 'ur-branch'
 git pull origin master
 
 
-#List of endpoints
-#List of features
-1. Login and signup
-2.Real time chat feature using socket.io
-3.GDPR Consent
-4.Email confirmation using nodemailer
-5.Notification using toastr
+#List of endpoints<br>
+#List of features<br>
+1. Login and signup<br>
+2.Real time chat feature using socket.io<br>
+3.GDPR Consent<br>
+4.Email confirmation using nodemailer<br>
+5.Notification using toastr<br>
