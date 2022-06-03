@@ -143,8 +143,10 @@ router.patch("/api/user/:email", async (req, res) => {
         
 
 }); 
-/*************************************************************** */
 
+
+
+// function to send confirmation to the registered user
 function sendmail(email,plateNumber){
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
