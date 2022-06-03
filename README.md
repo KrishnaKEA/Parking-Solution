@@ -21,7 +21,22 @@ git pull origin master
 
 
 #List of endpoints<br>
-#List of features<br>
+<p> 
+  #user
+<br>
+http://localhost:3000/api/users - method GET - retrives  users.
+<br> 
+http://localhost:3000/api/user - method GET - retrives current user
+<br>
+http://localhost:3000/api/login - method POST - Handles the login functionality
+<br>
+http://localhost:3000/api/logout - method POST - Handles logout functionality.
+<br>
+
+
+
+
+#List of features
 1. Login and signup<br>
 2.Real time chat feature using socket.io<br>
 3.GDPR Consent<br>
