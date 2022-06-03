@@ -33,14 +33,21 @@
 
 
     socket.on('chat message', (data) => {
+      console.log(data);
+      console.log(messages);
+      if(messages !== null && Array.isArray(messages) && messages.length>1 ){
+        let m = messages[1];
+        console.log(m);
+        let mp = messages.split(",");
+        messages =  mp.push(data);
+         chatMessagesArray.set(messages);
+      }else{
+        messages.push(data);
+        chatMessagesArray.set(messages);
+
         
- 
-      
-
-      messages = [...messages, data]
-      chatMessagesArray.set(messages);
-      
-
+      }
+     
     })
     function sendMessage() {
       socket.emit('chat message', message)
