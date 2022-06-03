@@ -8,10 +8,6 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-import path from "path";
-app.use(express.static(path.resolve("../client/public")));
-
-
 
 
 import mongoose from "mongoose";
@@ -76,18 +72,38 @@ import http from "http";
 const server = http.createServer(app);
 
 import { Server } from "socket.io";
-const io = new Server(server);
-const freeslots = ["1B2","1B1"];
-io.on("connection",(socket)=>{
-  console.log("user is there")
-  socket.on("freeslClient", ({ data }) => {
-   console.log(data)
-  });
-  
-  
+//const io = new Server(5000);
+
+const io = new Server(5000,{
+  cors: {
+   origin: ["http://localhost:8080"]
+  }
 })
 
- server.listen(process.env.PORT, () => {
-  console.log(`Server is listening on port ${process.env.PORT}`);
+
+
+
+io.on('connection', (socket) => {
+  socket.on('chat message', msg => {
+    io.emit('chat message', msg);
+  });
 });
-*/
+
+
+const key = "keyword";
+
+io.on("connection", (socket) => {
+
+  console.log("New connection...");
+
+  socket.on("colorChanged", ({ data }) => {
+    console.log(data);
+    io.emit("changeColor", { data, key });
+  });
+
+});
+
+
+server.listen(process.env.PORT, () => {
+ console.log(`Server is listening on port ${process.env.PORT}`);
+});

@@ -1,6 +1,6 @@
 <style>
     .container{
-      border: 1px solid;
+      border: 1px ;
      
     }
 </style>
@@ -25,8 +25,10 @@
       selectedParkingArea.set(parkingAreaInfo);
       console.log($selectedParkingArea);
       console.log($selectedParkingArea.slot);
+     
    }
 
+// https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg
 </script>
 
 <!-- component -->
@@ -35,13 +37,13 @@
 <!-- ====== Cards Section Start -->
 
          
-         <div class=" w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-4">
-            <div class=" bg-white rounded-lg overflow-hidden mb-8">
-               <img src="https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg" alt="image" class="w-full"/>
+         <div class="  w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-4 ">
+            <div class=" bg-white rounded-lg overflow-hidden mb-8 shadow-lg shadow-cyan-500/50">
+               <img src="/images/parkingAreas/{parkingAreaInfo.name}.jpg" alt="image" class="w-full h-32 "  />
                <div class="container rounded-b-lg p-8 sm:p-9 md:p-7 xl:p-9 text-center">
                   <h3>
+                     <!-- svelte-ignore a11y-missing-attribute -->
                      <a
-                        href="/"
                         class="
                         font-parkingTitle
                         font-semibold

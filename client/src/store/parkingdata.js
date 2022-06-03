@@ -9,6 +9,8 @@ export const BaseUrl = "http://localhost:3000";
 export let authenticated = writable(false);
 export let authenticatedUser = writable(null); // user details
 
+//Chat
+export let chatMessagesArray = writable(null);
 
 
 export let selectedParkingArea = writable(null); // one parking

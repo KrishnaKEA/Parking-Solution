@@ -4,6 +4,10 @@ import { onMount } from 'svelte';
 import axios from "axios";
 import {parkingSlot, parkingHours, BaseUrl} from "../store/parkingdata.js"
 
+
+   
+
+
 let parkings = [];
     let freeslots = [];
     let reservedslots = [];
@@ -93,16 +97,16 @@ onMount( async() => {
 <div class="container my-20 max-w-5xl mx-auto">
     <div class="flex flex-wrap -mx-4">
         
-        {#each $selectedParkingArea.slot as oneParking}
+        {#each $selectedParkingArea.slot as oneSlot}
         
             <div class=" w-full sm:w-1/3 md:w-1/6 xl:1/10 px-4">
                 <div class=" bg-white rounded-lg overflow-hidden mb-8">
                     <div class="container rounded-lg p-8 sm:p-9 md:p-7 xl:p-9 text-center">
 
-                        {#if oneParking.isFree === true}
-                            <div id="slot"><button id="btn" on:click={changeColor} style="background-color: green;" >{oneParking.number}{$selectedParkingArea.name}</button></div>
+                        {#if oneSlot.isFree === true}
+                            <button id="btn" on:click={changeColor} style="background-color: green;" >{oneSlot.number}{$selectedParkingArea.name}</button>
                         {:else}
-                            <div id="slot"><button id="btn" on:click={changeColor} style="background-color: red;" >{oneParking.number}{$selectedParkingArea.name}</button></div>
+                            <button id="btn" on:click={changeColor} style="background-color: red;" >{oneSlot.number}{$selectedParkingArea.name}</button>
                         {/if}
                     
                     </div>
@@ -114,15 +118,104 @@ onMount( async() => {
         {/each}
 
 
-        
-
-        
-
     </div>    
 </div>
 
 
 
+<section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
+    <div class=" my-0 max-w-5xl mx-auto">
+       <div class="flex flex-wrap -mx-4">
+
+        <ul class="showcase">
+            <li>
+              <div class="seat"></div>
+              <small>N/A</small>
+            </li>
+            <li>
+              <div class="seat selected"></div>
+              <small>Selected</small>
+            </li>
+            <li>
+              <div class="seat occupied"></div>
+              <small>Occupied</small>
+            </li>
+          </ul>
+      
+          <div class="container flex flex-wrap -mx-4">
+            
+            {#each $selectedParkingArea.slot as oneSlot}
+            
+            <div class="seat"></div>
+            
+            {/each}
+          </div>
+
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+            </div>
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat occupied"></div>
+              <div class="seat occupied"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+            </div>
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat occupied"></div>
+              <div class="seat occupied"></div>
+            </div>
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+            </div>
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat occupied"></div>
+              <div class="seat occupied"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+            </div>
+            <div class="row">
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat occupied"></div>
+              <div class="seat occupied"></div>
+              <div class="seat occupied"></div>
+              <div class="seat"></div>
+            </div>
+          
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -130,27 +223,71 @@ onMount( async() => {
 
 
 <style>
-    #slot{
-        display:flex;
-        margin-top: 10px;
-        padding:5px;
-        color:white;
-        background-color: green;
-        margin:5px;
-    }
-    #parking{
-        display:flex;
-    }
-    .maindiv{
-        position: relative;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        background-color: bisque;
-  
-    }
+   
     .container{
         border: 1px solid;
     }
     
+    .seat {
+  background-color: #444451;
+  height: 35px;
+  width: 35px;
+  margin: 3px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.seat.selected {
+  background-color: #6feaf6;
+}
+
+.seat.occupied {
+  background-color: rgb(241, 136, 136);
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+}
+
+
+
 </style>
