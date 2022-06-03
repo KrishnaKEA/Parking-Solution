@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 import UserRouter from './Routes/userRoutes.js';
 import ParkingArea from './Routes/parkingAreaRoutes.js';
-//import { Socket } from "socket.io";
+
 
 app.use(express.json());
 app.use(UserRouter);
@@ -49,22 +49,6 @@ mongoose.connect(process.env.MONGO_URL, {
 }); 
 
 
-
-
-
-/*
-app.use((err,req,res,next)=>{
-  console.error(err.stack);
-  res.status(500).send("something is broken");
-})
-*/
- app.listen(process.env.PORT, () => {
-  console.log(`Server is listening on port ${process.env.PORT}`);
-});
-/*
-import Server from "http";
-const server = Server(app);
-const io = require("socket.io")(server);
 
 
 
@@ -114,6 +98,6 @@ io.on("connection", (socket) => {
 });
 
 
-server.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
  console.log(`Server is listening on port ${process.env.PORT}`);
 });

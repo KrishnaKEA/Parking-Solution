@@ -38,7 +38,7 @@ authenticated.subscribe(a => auth = a);
 
           <Link to = "map" class="block hover:text-red-900 font-parkingTitle">Map</Link>
           <Link to = "about" class="block hover:text-red-900 font-parkingTitle">About</Link>
-          <Link to = "contact" class="block hover:text-red-900 font-parkingTitle">Contact</Link>
+          <Link to = "chat" class="block hover:text-red-900 font-parkingTitle">Chat</Link>
 
       
 
