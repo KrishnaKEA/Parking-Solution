@@ -32,6 +32,10 @@ http://localhost:3000/api/login - method POST - Handles the login functionality
 <br>
 http://localhost:3000/api/logout - method POST - Handles logout functionality.
 <br>
+  #Parking area
+  http://localhost:3000/api/parkingArea - method GET - retrives all parking areas <br>
+  http://localhost:3000/api/parkingArea/:key - method GET - retrives a parkingArea by location<br>
+  http://localhost:3000/parkingarea/reservation/:slotNumber/:name/:hour - method PATCH - updates parking slot in parking area<br>
 
 
 
