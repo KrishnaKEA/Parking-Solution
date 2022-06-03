@@ -22,3 +22,8 @@ git pull origin master
 
 #List of endpoints
 #List of features
+1. Login and signup
+2.Real time chat feature using socket.io
+3.GDPR Consent
+4.Email confirmation using nodemailer
+5.Notification using toastr
