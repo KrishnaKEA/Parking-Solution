@@ -15,7 +15,7 @@ authenticated.subscribe(a => auth = a);
       <Link to = "map" class="p-2 font-parkingTitle hover:text-red-900">Map</Link>
       <Link to = "about" class="p-2 font-parkingTitle hover:text-red-900">About</Link>
       <Link to = "contact" class="p-2 font-parkingTitle hover:text-red-900">Contact</Link>
-      <Link to = "chat" class="p-2 font-parkingTitle hover:text-red-900">chat </Link>
+      <Link to = "chat" class="p-2 font-parkingTitle hover:text-red-900">Chat </Link>
 
       {#if auth}
           <Link to = "/" on:click={logout} class="p-5 font-parkingTitle hover:text-red-900">Log Out</Link>
