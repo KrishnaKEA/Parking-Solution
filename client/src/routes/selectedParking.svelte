@@ -4,6 +4,10 @@ import { onMount } from 'svelte';
 import axios from "axios";
 import {parkingSlot, parkingHours, BaseUrl} from "../store/parkingdata.js"
 
+
+   
+
+
 let parkings = [];
     let freeslots = [];
     let reservedslots = [];
@@ -212,6 +216,7 @@ onMount( async() => {
         </div>
     </div>
 </section>
+
 
 
 

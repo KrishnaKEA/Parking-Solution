@@ -3,6 +3,7 @@ const router = Router();
 
 import ParkingArea from "../Model/parkingArea.js";
 
+
 //Get all parking Areas
 router.get("/api/parkingarea", async (req, res) => {
   try {

@@ -25,6 +25,7 @@
       selectedParkingArea.set(parkingAreaInfo);
       console.log($selectedParkingArea);
       console.log($selectedParkingArea.slot);
+     
    }
 
 // https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg

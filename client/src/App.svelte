@@ -16,6 +16,7 @@
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
 	import MapComponent from './components/Map/MapComponent.svelte';
+import Chat from './routes/chat.svelte';
 
 	
 	
@@ -77,7 +78,7 @@
 		<Route path="DisplayParkings" component={DisplayParkings} />
 	 	<Route path="BookingDetails" component={BookingDetails} />
 		<Route path="map" component={MapComponent} />
-		
+		<Route path="chat" component={Chat} />
 
 
 

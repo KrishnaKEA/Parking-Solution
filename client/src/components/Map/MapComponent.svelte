@@ -2,8 +2,9 @@
     import { onMount } from 'svelte';
     import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
-    import { BaseUrl, allParkingAreas } from '../../store/parkingdata.js';
+    import { BaseUrl, allParkingAreas, chatMessagesArray } from '../../store/parkingdata.js';
 
+    console.log($chatMessagesArray);
 
     import Spinner from '../Spinner.svelte';
     import CardParkingArea from "../card-parkingArea.svelte";
