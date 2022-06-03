@@ -23,7 +23,7 @@
 <!-- Removed/default properties: max-w-2xl mx-auto -->
 <!-- Added properties: my-20 (margin top+bottom) -->
 <div class="container ">
-	<div class="my-20 max-w-5xl mx-auto">
+	<div class="my-20 max-w-5xl  mx-auto">
 	
 		<p class="font-parkingTitle font-semibold text-dark text-xl 
 		sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]

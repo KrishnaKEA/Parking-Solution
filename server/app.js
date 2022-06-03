@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-
-
 dotenv.config();
 import express from "express";
+
+
 const app = express();
 //import md5 from 'md5';
 
@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 import UserRouter from './Routes/userRoutes.js';
 import ParkingArea from './Routes/parkingAreaRoutes.js';
-//import { Socket } from "socket.io";
+
 
 app.use(express.json());
 app.use(UserRouter);
@@ -52,10 +52,6 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
-///////////
-
-
-
 import http from "http";
 const server = http.createServer(app);
 
@@ -72,10 +68,20 @@ const io = new Server(5000,{
 
 
 io.on('connection', (socket) => {
-  socket.on('chat message', msg => {
-    io.emit('chat message', msg);
+  socket.on('chat message', (msg, username) => {
+    
+    let dataToSend = username+": "+msg
+
+    io.emit('chat message', dataToSend);
   });
 });
+
+
+
+
+
+
+
 
 
 const key = "keyword";
@@ -92,6 +98,6 @@ io.on("connection", (socket) => {
 });
 
 
-server.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
  console.log(`Server is listening on port ${process.env.PORT}`);
 });
