@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-
-
 dotenv.config();
 import express from "express";
+
+
 const app = express();
 //import md5 from 'md5';
 
@@ -51,6 +51,10 @@ mongoose.connect(process.env.MONGO_URL, {
     console.log("Connected to MongoDB successfully");
   }
 }); 
+
+
+
+
 
 /*
 app.use((err,req,res,next)=>{
