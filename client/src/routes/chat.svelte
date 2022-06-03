@@ -47,7 +47,7 @@
     })
     function sendMessage() {
       socket.emit('chat message', message, $authenticatedUser.first_name )
-      
+      message = '';
       
     }
 
