@@ -32,23 +32,6 @@
 
 
     socket.on('chat message', (data) => {
-<<<<<<< HEAD
-      console.log(data);
-      console.log(messages);
-      if(messages !== null && Array.isArray(messages) && messages.length>1 ){
-        let m = messages[1];
-        console.log(m);
-        let mp = messages.split(",");
-        messages =  mp.push(data);
-         chatMessagesArray.set(messages);
-      }else{
-        messages.push(data);
-        chatMessagesArray.set(messages);
-
-        
-      }
-     
-=======
 
         
         
@@ -61,7 +44,6 @@
       chatMessagesArray.set(messages);
       
 
->>>>>>> c4cfb8d788864d2f4b556296985819b867bedecf
     })
     function sendMessage() {
       socket.emit('chat message', message, $authenticatedUser.first_name )
