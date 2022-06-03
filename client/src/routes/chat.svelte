@@ -1,10 +1,8 @@
 <script>
     import io from 'socket.io-client'
     import { onMount } from 'svelte'; 
-    import { chatMessagesArray } from "../store/parkingdata.js";
+    import { chatMessagesArray, authenticatedUser } from "../store/parkingdata.js";
     const socket = io("http://localhost:5000")
-
-
 
 
 
@@ -27,14 +25,19 @@
 
     let messages = [$chatMessagesArray];
     let message = ''
-    let archive = [];
 
 
+
+    console.log($chatMessagesArray);
 
 
     socket.on('chat message', (data) => {
+
         
- 
+        
+        if( Array.isArray(messages[0]) ){
+            messages = [...messages[0]]
+        }
       
 
       messages = [...messages, data]
@@ -43,7 +46,7 @@
 
     })
     function sendMessage() {
-      socket.emit('chat message', message)
+      socket.emit('chat message', message, $authenticatedUser.first_name )
       
       
     }
@@ -74,11 +77,22 @@
 
 
                 {#each messages as oneMessage}
-                
-                    {#if oneMessage != null}
-                        <div class="px-4 py-2 mb-2 bg-pink-700 rounded-md font-semibold text-gray-50 w-fit">{oneMessage}</div>
-                    {/if}
 
+                    {#if Array.isArray(oneMessage) === true }
+                    
+                        {#each oneMessage as anotherOneMessage}
+                    
+                            {#if anotherOneMessage != null}
+                                <div class="px-4 py-2 mb-2 bg-pink-700 rounded-md font-semibold text-gray-50 w-fit">  {anotherOneMessage}</div>
+                            {/if}
+                        
+                        {/each}
+                    {:else}
+                        {#if oneMessage != null}
+                            <div class="px-4 py-2 mb-2 bg-pink-700 rounded-md font-semibold text-gray-50 w-fit"> {oneMessage}</div>
+                        {/if}  
+                    {/if}   
+                        
                 {/each}
 
             {/if}

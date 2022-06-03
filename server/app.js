@@ -72,10 +72,20 @@ const io = new Server(5000,{
 
 
 io.on('connection', (socket) => {
-  socket.on('chat message', msg => {
-    io.emit('chat message', msg);
+  socket.on('chat message', (msg, username) => {
+    
+    let dataToSend = username+": "+msg
+
+    io.emit('chat message', dataToSend);
   });
 });
+
+
+
+
+
+
+
 
 
 const key = "keyword";
