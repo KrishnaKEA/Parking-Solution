@@ -13,8 +13,7 @@ const parkingAreaSchema = new Schema({
         isFree: {type:Boolean,default:true}
        
    }]
-    
-});
+   });
 
 const parkingArea = model('parkingArea', parkingAreaSchema);
 
