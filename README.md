@@ -1,15 +1,15 @@
-# Full MESN(MongoDB, Express, Svelte and Node.js) Stack Parking Application
+# OAK - Full MESN(MongoDB, Express, Svelte and Node.js) Stack Parking Application
 
 A fullstack application named OAK-Parking built with Svelte on the frontend and Node/Express on the backend.
-
-### [Demo]
 
 |  Name | gh  
 |---|---|
 |Adrian|https://github.com/adrian52x|
 |Krishna|https://github.com/KrishnaKEA|
 |Omar|https://github.com/OmarExpo|
-
+<br>
+### [Demo]
+<br>
 This repo demonstrates almost everything you need to know to build a complete fullstack application using Svelte and Node/Express. This Application demo covers things like:
 - Login and signup
 - Real time chat feature using socket.io
@@ -58,8 +58,8 @@ To build it and run it in production mode:
 
 <hr>
 <br>
-# OAK - Git brush up
-#git documentation for all contributors
+
+#Git brush up for all contributors
 
 1. Do changes in your own branch
 git checkout 'ur-branch-name'
