@@ -10,6 +10,7 @@ A fullstack application named OAK-Parking built with Svelte on the frontend and 
 <br>
 ### [Demo]
 <br>
+<br>
 This repo demonstrates almost everything you need to know to build a complete fullstack application using Svelte and Node/Express. This Application demo covers things like:
 - Login and signup
 - Real time chat feature using socket.io
