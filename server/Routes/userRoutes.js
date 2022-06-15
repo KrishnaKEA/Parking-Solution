@@ -14,7 +14,7 @@ router.get("/api/users", async (req, res) => {
         const users = await User.find()
         res.status(200).json({total_users: users.length, users : users}) 
     } catch (error) {
-        res.status(400).json({ message: "something wrong" })
+        res.status(400).json({ message: "something wrong, please try again." })
     }
 });
 
@@ -30,8 +30,8 @@ router.post("/api/register", async (req, res) => {
             return res.status(400).send("All input are required");
         }
 
-        // check if user already exist
-        // Validate if user exist in our database
+        // checks if user already exist
+        // Validates if user exist in our database
         const oldUser = await User.findOne({ email });
 
         if (oldUser) {
@@ -143,8 +143,10 @@ router.patch("/api/user/:email", async (req, res) => {
         
 
 }); 
-/*************************************************************** */
 
+
+
+// function to send confirmation to the registered user
 function sendmail(email,plateNumber){
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
