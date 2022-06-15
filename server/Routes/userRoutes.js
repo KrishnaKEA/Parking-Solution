@@ -125,7 +125,7 @@ router.get("/api/user", async (req, res) => {
     
 });
 
-
+// Update user
 router.patch("/api/user/:email", async (req, res) => {
     try {
         const email = req.params.email

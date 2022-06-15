@@ -1,7 +1,6 @@
 <script>
     import axios from "axios";
     import { onMount } from 'svelte';
-    import BookingDetails from "../routes/BookingDetails.svelte"
     import {parkingSlot, parkingHours, BaseUrl} from "../store/parkingdata.js"
     import io from "socket.io-client";
     const socket = io();

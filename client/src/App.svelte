@@ -7,7 +7,6 @@
 	import { Router, Link, Route } from 'svelte-routing';
 	import Footer from './components/footer.svelte';
 	import DisplayParkings from './routes/DisplayParkings.svelte';
-	import BookingDetails from './routes/BookingDetails.svelte';
 	import SelectedParking from './routes/selectedParking.svelte';
 	import SelectedArea from './routes/selectedArea.svelte';
 
@@ -16,7 +15,7 @@
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
 	import MapComponent from './components/Map/MapComponent.svelte';
-import Chat from './routes/chat.svelte';
+	import Chat from './routes/chat.svelte';
 
 	
 	
@@ -75,14 +74,12 @@ import Chat from './routes/chat.svelte';
 
 		<Route path="parkings/:area" component={SelectedArea} />
 		<Route path="parkingslots" component={SelectedParking} />
-
-		<Route path="DisplayParkings" component={DisplayParkings} />
-	 	<Route path="BookingDetails" component={BookingDetails} />
 		<Route path="map" component={MapComponent} />
 		<Route path="chat" component={Chat} />
 
 
 
+		<Route path="DisplayParkings" component={DisplayParkings} />
 
 
 	<Footer/>
