@@ -36,14 +36,15 @@ router.get("/api/parkingarea/:key", async (req, res) => {
   }
 });
 
-//
+// Reserving a parking slot
 router.patch(
-  "/api/parkingarea/reservation/:slotNumber/:name/:hour",
+  "/api/parkingarea/reservation/:slotNumber/:name/:hour/:plateNr",
   async (req, res) => {
     try {
       const slotNumber = Number(req.params.slotNumber);
       const name = req.params.name;
       const hour = Number(req.params.hour);
+      const plateNumber = req.params.plateNr;
       const milliseconds = 3600000*hour;
 
       Date.prototype.addHours = function (h, gmt) {
@@ -65,6 +66,7 @@ router.patch(
 
       for (let i = 0; i < slot.length; i++) {
         if (slot[i].number === slotNumber) {
+          slot[i].plateNumber = plateNumber;
           slot[i].startTime = startDate;
           slot[i].endTime = endDate;
           slot[i].isFree = false;
@@ -142,6 +144,7 @@ router.patch("/api/parkingarea/:name/:slots", async (req, res) => {
 
 //***************************************************************************
 
+// Reset parking slot (reset time)
 router.patch(
   "/api/parkingarea/reservation/:slotNumber/:name",
   async (req, res) => {

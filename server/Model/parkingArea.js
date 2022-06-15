@@ -10,6 +10,7 @@ const parkingAreaSchema = new Schema({
         number: { type: Number },
         startTime: { type: Date, default: null },
         endTime: { type: Date, default: null },
+        plateNumber: { type: String, default: null },
         isFree: {type:Boolean,default:true}
        
    }]

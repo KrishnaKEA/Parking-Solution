@@ -60,24 +60,8 @@
   margin-top: 25px;
 }
 
-.flex-item-left {
-  background-color: #77beed;
-  padding: 10px;
-  flex: 50%;
-}
 
-.flex-item-right {
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  flex: 50%;
-}
 
-/* Responsive layout - makes a one column-layout instead of a two-column layout */
-@media (max-width: 800px) {
-  .flex-item-right, .flex-item-left {
-    flex: 100%;
-  }
-}
 </style>
 
 <div class="my-20 max-w-6xl mx-auto ">
@@ -85,7 +69,7 @@
     <div class="flex-container">
 
 
-        <div class="flex-item-left mb-6">
+        
             <Map  lat={55.68} lon={12.58} zoom={10.6}>
 
                 {#each parkingsArray as oneParkingArea} 
@@ -96,20 +80,10 @@
 
             </Map>
 
-        </div>
+        
 
         
-        <div class="flex-item-right mb-6">
-            
-            {#each parkingsArray as oneParkingArea} 
-                <a href="/" class=" font-semibold text-dark text-sm mb-4 block hover:text-primary">
-                    <p>{oneParkingArea.name} | {oneParkingArea.location}</p>  
-                   
-                </a>   
-            {/each} 
-            
-
-        </div>
+       
         
     </div>
 </div>
