@@ -149,14 +149,15 @@ router.patch("/api/user/:email", async (req, res) => {
 // function to send confirmation to the registered user
 function sendmail(email,plateNumber){
     let mailTransporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'hotmail',
         auth: {
-            user: 'testkea123@gmail.com',
-            pass: 'krishnaamen123'
+            user: 'keaoak@outlook.com',
+            pass: 'oak123@123'
         }
+      
     });
     let mailDetails = {
-        from: 'testkea123@gmail.com',
+        from: 'keaoak@outlook.com',
         to: `${email}`,
         subject: 'Mail confirmation from Parking app',
         text: `You have successfully created a user account with email-  ${email} and numberplate ${plateNumber}`
