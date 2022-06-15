@@ -1,9 +1,9 @@
 <script>
-import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
+import {selectedParkingArea } from "../store/parkingdata.js";
 import { onMount } from 'svelte';
 import axios from "axios";
-import {parkingSlot, parkingHours, BaseUrl, authenticatedUser} from "../store/parkingdata.js"
-  
+import {BaseUrl, authenticatedUser} from "../store/parkingdata.js";
+import toastr from "toastr";  
 
 
 
@@ -79,18 +79,26 @@ onMount( async() => {
               resetSlot(hours,pname,slotNumber);
 
             }else{
-              alert("Please log in..")
+              toastr.warning("Please log in..")
               
             }
-
+      
+           
            
     }
     
 
     async function reserveSlot(hours,parkingName,slotNumber,plateNumber){
       
-      await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
+      const response = await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
       
+      if(response.status === 200 && hours > 0){
+        toastr.success(`Successfully reserved slot number ${slotNumber} for ${hours} hours from now!`)
+      }else{
+        toastr.error(`Something went wrong...`)
+      }
+      
+       
     }
    
    
