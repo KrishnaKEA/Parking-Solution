@@ -19,6 +19,7 @@
         password: password,
       }),
     });
+    toastr.info(`You are successfully registered`)
 
     location.replace("/login");
   };
