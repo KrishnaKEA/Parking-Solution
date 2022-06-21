@@ -21,6 +21,7 @@
         password: password,
       }),
     });
+    toastr.info(`You are successfully registered`)
 
     if(response.status === 201){
       toastr.info("Success!");

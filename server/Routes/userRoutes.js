@@ -6,8 +6,18 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer"
 
+let authenticatedUser = null;
 
-
+/*
+function checkValidUser(req, res, next) {
+  if (authenticatedUser!=null){
+    next();
+  }
+     else {
+        res.send({ message: `You don't have permission to enter` });
+    }
+}
+*/
 // Get all users
 router.get("/api/users", async (req, res) => {
     try {
@@ -72,6 +82,7 @@ router.post("/api/login", async (req, res) => {
         }
         // Validate if user exist in our database
         const user = await User.findOne({ email });
+        authenticatedUser = user;
     
         if (user && (await bcrypt.compare(password, user.password))) {
             // Create token
