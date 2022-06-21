@@ -6,45 +6,46 @@ import {BaseUrl, authenticatedUser} from "../store/parkingdata.js";
 import toastr from "toastr";  
 
 
-
 let parkings = [];
 
 
+
 onMount( async() => {
-        const data = await axios.get(`${BaseUrl}/api/parkingArea`)
-        parkings = data.data.ParkingAreas;
-        console.log(parkings);
-        
-        
-        parkings.map((parking)=>{
-            const parkingName = parking.name;
-            const slots = parking.slot;
-            
-            slots.map(async(sl)=>{
-                const slotnumber = sl.number;
-               // console.log(sl);
-                const enddate = sl.endTime;
-                if(enddate!==null){
-                    const edate =new Date(enddate);
-                    
-                   const ndate =new Date();
-    
-                    if(edate < ndate){
-                        console.log("******************");
-                        console.log("FOUND!!!!");
-                        console.log("******************");
-                        await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
-    
+  //Reste parking slots if outdated
+  const data = await axios.get(`${BaseUrl}/api/parkingArea`)
+  			parkings = data.data.ParkingAreas;
+			
+         
+  			parkings.map((parking)=>{
+    			const slots = parking.slot;
+    			const parkingName = parking.name;
+     
+      			slots.map(async(sl)=>{
+      			  const slotnumber = sl.number;
+      			  const enddate = sl.endTime;
+
+
+
+      			  if(enddate!==null){
+      			    const edate =new Date(enddate).getHours();
+      			    const ndate =new Date().getHours();
+
+
+                // Check if parking endTime is from yesterday and reset it
+      			    if(edate < ndate){
+      			        await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+      			    }else{
+                    //If today , checking by hours and reset it
+                    if((edate-2) - ndate < 0 ){
+                      await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
                     }
                 }
-                
-              
-    
-            })
+      			  }
+      			})
+  			})
 
-       })
      
-    });
+});
      
     function changeColor() {
           const bgcolor = this.style.backgroundColor;
