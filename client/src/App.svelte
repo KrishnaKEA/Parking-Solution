@@ -19,14 +19,16 @@
 
 	
 	
+
 	//Sidebar
 	let open = false;
 	
-	// checking token
-    //Get user data and save in store
+	
     onMount(async () => {
         try {
 
+			// checking token
+    		//Get user data and save in store
             const response = await fetch(`${BaseUrl}/api/user`, {
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',

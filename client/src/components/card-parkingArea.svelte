@@ -14,7 +14,9 @@
 
 
    export let freeSlots;
+
    export let parkingAreaInfo;
+
 
 
    freeSlots = parkingAreaInfo.slot.filter(slot => slot.isFree === true)
@@ -28,7 +30,6 @@
      
    }
 
-// https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg
 </script>
 
 <!-- component -->
