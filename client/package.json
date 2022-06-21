@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
+    "@types/toastr": "^2.1.39",
     "axios": "^0.27.2",
     "leaflet": "^1.8.0",
     "mapbox-gl": "^2.8.2",
