@@ -1,6 +1,6 @@
 import { BaseUrl, selectedArea } from "../store/parkingdata.js";
 import { searchKeyword } from "../store/parkingdata.js";
-
+import toastr from "toastr";
 
 // Logout function
 export const logout = async () => {
@@ -15,21 +15,30 @@ export const logout = async () => {
 
 // Select area (buttons) 
 export const selectArea = async (area) => {
-    try {
+    if(area.length == 0){
+        toastr.warning("No location found...")
+    }else{
 
-        const response = await fetch(`${BaseUrl}/api/parkingarea/${area}`);
+        try {
 
-        const data = await response.json();
-        
-        selectedArea.set(data.ParkingAreas);
-        searchKeyword.set(area);
+            const response = await fetch(`${BaseUrl}/api/parkingarea/${area}`);
+    
+            const data = await response.json();
+            
+            selectedArea.set(data.ParkingAreas);
+            searchKeyword.set(area);
+    
+            console.log(data.ParkingAreas);
+    
+    
+        } catch (error) {
+            console.log(error);
+        }
 
-        console.log(data.ParkingAreas);
-
-
-    } catch (error) {
-        console.log(error);
     }
+    
+    
+    
     
 }
 

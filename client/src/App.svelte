@@ -75,7 +75,14 @@
 		<Route path="parkings/:area" component={SelectedArea} />
 		<Route path="parkingslots" component={SelectedParking} />
 		<Route path="map" component={MapComponent} />
-		<Route path="chat" component={Chat} />
+		
+		{#if $authenticated}
+			<Route path="chat" component={Chat} />
+		{:else}
+			<Route path="chat" component={Login} />
+		{/if}
+
+		
 
 
 

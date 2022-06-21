@@ -1,5 +1,6 @@
 <script>
   import { BaseUrl } from "../store/parkingdata.js";
+  import toastr from "toastr";
 
   let firstName,
     lastName,
@@ -8,7 +9,8 @@
     password = "";
 
   const signUp = async () => {
-    await fetch(`${BaseUrl}/api/register`, {
+
+    const response = await fetch(`${BaseUrl}/api/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -21,7 +23,19 @@
     });
     toastr.info(`You are successfully registered`)
 
-    location.replace("/login");
+    if(response.status === 201){
+      toastr.info("Success!");
+      
+      setTimeout(() => {
+        location.replace("/login");
+      }, 1000)
+
+    }else{
+      
+      toastr.error("Email already in use");
+    }
+      
+
   };
 </script>
 
@@ -30,9 +44,7 @@
   <div class="container px-4 mx-auto">
     <div class="max-w-lg mx-auto">
       <div class="text-center mb-8">
-        <a class="inline-block mx-auto mb-6" href="#">
-          <img src="nigodo-assets/logo-icon-nigodo.svg" alt="" />
-        </a>
+        
         <h2 class="text-3xl md:text-4xl font-extrabold mb-2">Sign up</h2>
       </div>
       <form on:submit|preventDefault={signUp}>
