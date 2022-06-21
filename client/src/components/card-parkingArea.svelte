@@ -9,7 +9,7 @@
 <script>
    import { Link } from "svelte-routing";
 
-   import { allParkingAreas, selectedParkingArea } from "../store/parkingdata.js";
+   import { selectedParkingArea } from "../store/parkingdata.js";
    
 
 

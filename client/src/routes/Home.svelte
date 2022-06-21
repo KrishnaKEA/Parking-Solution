@@ -1,11 +1,9 @@
 <script>
 
-    import { onMount } from 'svelte';
     import { Link } from "svelte-routing";
     
-    import Spinner from '../components/Spinner.svelte';
     import SearchBar from "../components/SearchBar.svelte";
-    import { BaseUrl, allParkingAreas, cphAreaNames, selectedArea } from "../store/parkingdata.js"
+    import { cphAreaNames } from "../store/parkingdata.js"
     import CopenhagenMap from '../components/Map/CopenhagenMap.svelte';
     import { selectArea } from "../store/utils.js"
     
