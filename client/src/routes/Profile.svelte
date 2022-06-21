@@ -1,9 +1,10 @@
 <script>
-import { onMount } from "svelte";
-import { blank_object } from "svelte/internal";
+
 import { allParkingAreas, authenticatedUser, selectedParkingArea } from "../store/parkingdata.js";
 
 let parkings = $allParkingAreas;
+
+console.log(parkings[0].slot);
 
 let firstName = $authenticatedUser.first_name
 let lastName = $authenticatedUser.last_name
@@ -13,32 +14,33 @@ let balance = $authenticatedUser.balance
 
 
 
-let mySlots = new Array();
 
-onMount( async() => {
-      
-   
-  			parkings.map((parking)=>{
-    			const slots = parking.slot;
-    			let parkingName = parking.name;
-     
-      			slots.map((sl)=>{
-                    if(plateNumber === sl.plateNumber){
-                        //const userSlot = {parkingName: parkingName, slot: sl }
-                        const userSlot =  sl
-                        console.log(sl.number);
-                        
-                        mySlots.push(userSlot);
-                    }
-                    
-      			})
-  			})
+let mySlots = []
 
-              
-});
+
+parkings.forEach((parking) => {
+    let parkingName = parking.name;
+    const slots = parking.slot
+    
+    slots.forEach((sl) => {
+        if(plateNumber === sl.plateNumber){
+             let userSlot = {parkingName: parkingName, slot: sl }
+             mySlots.push(userSlot)
+         }
+     })
+})
+            
+
+
+const refactorTime = (time) => {
+    return time
+}              
+    
+
 
 
 console.log(mySlots);
+
 
 </script>
 
@@ -57,8 +59,9 @@ console.log(mySlots);
 
             <h1>{oneSlot.parkingName}</h1>
             <p>{oneSlot.slot.number}</p>
-            <p>{oneSlot.slot.startTime}</p>
-            <p>{oneSlot.slot.endTime}</p>
+            <p>{refactorTime(oneSlot.slot.startTime)}</p>
+            <p>{refactorTime(oneSlot.slot.endTime)}</p>
+            <hr>
              
 {/each} 
 
