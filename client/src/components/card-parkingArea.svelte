@@ -1,10 +1,3 @@
-<style>
-    .container{
-      border: 1px ;
-     
-    }
-</style>
-
 
 <script>
    import { Link } from "svelte-routing";
@@ -34,6 +27,7 @@
 
 <!-- component -->
 <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- ====== Cards Section Start -->
 
@@ -91,6 +85,7 @@
                   View Details
                </button>
                </Link>
+               <a href="https://www.google.com/maps/search/?api=1&query={parkingAreaInfo.lat},{parkingAreaInfo.lon}" target="_blank"><i class="material-icons">directions</i></a>
             
                </div>
             </div>
@@ -99,3 +94,24 @@
          
 
 <!-- ====== Cards Section End -->
+
+<style>
+   a { color: inherit; } 
+
+   .container{
+     border: 1px ;
+    
+   }
+
+   .material-icons{
+      padding-top: 10px;
+      font-size:48px;
+      
+   }
+
+   .material-icons:hover{
+      cursor: pointer;
+      color: blue;
+   }
+
+</style>

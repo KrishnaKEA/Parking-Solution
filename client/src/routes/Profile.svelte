@@ -4,7 +4,7 @@
     
     let parkings = $allParkingAreas;
     
-    console.log(parkings[0].slot);
+    
     
     let firstName = $authenticatedUser.first_name
     let lastName = $authenticatedUser.last_name
@@ -67,8 +67,8 @@
                 <p>Slot: {oneSlot.slot.number}</p>
                 <p>From {refactorTime(oneSlot.slot.startTime)}</p>
                 <p>To {refactorTime(oneSlot.slot.endTime)}</p>
-                 
+                <hr>
     {/each} 
     
-    <h1>Hello</h1>
-    <hr>
+    
+   

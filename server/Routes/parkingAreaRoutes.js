@@ -162,6 +162,7 @@ router.patch(
           slot[i].startTime = null;
           slot[i].endTime = null;
           slot[i].isFree = true;
+          slot[i].plateNumber = null;
           slot[slotNumber - 1] = slot[i];
           break;
         }

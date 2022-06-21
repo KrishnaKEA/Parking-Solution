@@ -44,7 +44,7 @@
 
                 {#each parkingsArray as oneParkingArea} 
                 {#if oneParkingArea.lat > 0 }
-                   <MapMarker lat={oneParkingArea.lat} lon={oneParkingArea.lon} label="{oneParkingArea.name} | Capacity: {oneParkingArea.slot.length}"/>  
+                   <MapMarker lat={oneParkingArea.lat} lon={oneParkingArea.lon} label="{oneParkingArea.name} | Capacity: {oneParkingArea.slot.length} "/>  
                 {/if}   
                 {/each} 
 
