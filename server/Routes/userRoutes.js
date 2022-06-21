@@ -8,7 +8,7 @@ import nodemailer from "nodemailer"
 
 let authenticatedUser = null;
 
-
+/*
 function checkValidUser(req, res, next) {
   if (authenticatedUser!=null){
     next();
@@ -17,9 +17,9 @@ function checkValidUser(req, res, next) {
         res.send({ message: `You don't have permission to enter` });
     }
 }
-
+*/
 // Get all users
-router.get("/api/users", checkValidUser, async (req, res) => {
+router.get("/api/users", async (req, res) => {
     try {
         const users = await User.find()
         res.status(200).json({total_users: users.length, users : users}) 

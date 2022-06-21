@@ -51,8 +51,6 @@ router.patch(
         this.setHours(this.getHours() + gmt + h);
         return this;
       };
-
-
       const startDate = new Date().addHours(0, 2);
       console.log(startDate.toString());
 
@@ -164,7 +162,6 @@ router.patch(
           slot[i].startTime = null;
           slot[i].endTime = null;
           slot[i].isFree = true;
-          slot[i].plateNumber = null;
           slot[slotNumber - 1] = slot[i];
           break;
         }
