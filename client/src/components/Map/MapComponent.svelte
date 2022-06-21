@@ -8,25 +8,8 @@
     import Spinner from '../Spinner.svelte';
     import CardParkingArea from "../card-parkingArea.svelte";
 
-    let parkingsArray = [];
+    let parkingsArray = $allParkingAreas;
 
-    //Fetch all parkings
-    onMount(async () => {
-        try {
-
-            const response = await fetch(`${BaseUrl}/api/parkingarea`, {
-            headers: {'Content-Type': 'application/json'},
-            credentials: 'include',
-            });
-
-            const data = await response.json();
-            parkingsArray = data.ParkingAreas;
-            allParkingAreas.set(parkingsArray)
-
-        } catch (error) {
-            console.log(error);
-        }
-    });
 
     
 

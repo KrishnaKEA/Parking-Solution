@@ -3,14 +3,14 @@
 	import Error from "./components/Error.svelte";
 	import Login from "./routes/Login.svelte";
 	import Signup from './routes/Signup.svelte';
+	import Profile from './routes/Profile.svelte';
 	import Home from "./routes/Home.svelte";
 	import { Router, Link, Route } from 'svelte-routing';
 	import Footer from './components/footer.svelte';
-	import DisplayParkings from './routes/DisplayParkings.svelte';
 	import SelectedParking from './routes/selectedParking.svelte';
 	import SelectedArea from './routes/selectedArea.svelte';
 
-	import {BaseUrl, authenticated, authenticatedUser} from "./store/parkingdata.js";
+	import {BaseUrl, authenticated, authenticatedUser, allParkingAreas} from "./store/parkingdata.js";
 
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
@@ -25,6 +25,21 @@
 	
 	
     onMount(async () => {
+
+		try {
+
+			const response = await fetch(`${BaseUrl}/api/parkingarea`);
+			const data = await response.json();
+
+			let parkingsArray = data.ParkingAreas;
+			allParkingAreas.set(parkingsArray)
+
+		} catch (error) {
+			console.log(error);
+		}
+
+
+
         try {
 
 			// checking token
@@ -45,6 +60,7 @@
             }
         
             
+
         } catch (error) {
             authenticated.set(false);
             authenticatedUser.set(null);
@@ -80,6 +96,7 @@
 		
 		{#if $authenticated}
 			<Route path="chat" component={Chat} />
+			<Route path="profile" component={Profile} />
 		{:else}
 			<Route path="chat" component={Login} />
 		{/if}
@@ -88,7 +105,6 @@
 
 
 
-		<Route path="DisplayParkings" component={DisplayParkings} />
 
 
 	<Footer/>

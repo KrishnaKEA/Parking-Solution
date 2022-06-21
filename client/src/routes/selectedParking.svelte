@@ -2,7 +2,7 @@
 import {selectedParkingArea } from "../store/parkingdata.js";
 import { onMount } from 'svelte';
 import axios from "axios";
-import {BaseUrl, authenticatedUser} from "../store/parkingdata.js";
+import {BaseUrl, authenticatedUser, allParkingAreas} from "../store/parkingdata.js";
 import toastr from "toastr";  
 
 
@@ -11,9 +11,9 @@ let parkings = [];
 
 
 onMount( async() => {
-  //Reste parking slots if outdated
-  const data = await axios.get(`${BaseUrl}/api/parkingArea`)
-  			parkings = data.data.ParkingAreas;
+      //Reste parking slots if outdated
+  
+  			parkings = $allParkingAreas;
 			
          
   			parkings.map((parking)=>{
@@ -93,6 +93,7 @@ onMount( async() => {
       
       const response = await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
       
+
       if(response.status === 200 && hours > 0){
         toastr.success(`Successfully reserved slot number ${slotNumber} for ${hours} hours from now!`)
       }else{

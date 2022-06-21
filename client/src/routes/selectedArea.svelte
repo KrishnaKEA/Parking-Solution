@@ -1,5 +1,4 @@
 <script>
-import { onMount } from 'svelte';
 import { selectedArea, searchKeyword } from '../store/parkingdata.js';
 import CardParkingArea from "../components/card-parkingArea.svelte";
 import Spinner from '../components/Spinner.svelte';
