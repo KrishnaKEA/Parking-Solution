@@ -2,9 +2,8 @@
     import { onMount } from 'svelte';
     import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
-    import { BaseUrl, allParkingAreas, chatMessagesArray } from '../../store/parkingdata.js';
+    import { BaseUrl, allParkingAreas } from '../../store/parkingdata.js';
 
-    console.log($chatMessagesArray);
 
     import Spinner from '../Spinner.svelte';
     import CardParkingArea from "../card-parkingArea.svelte";
@@ -30,18 +29,6 @@
     });
 
     
-    const randomLat = () => {
-        return Math.random() * (55.6858 - 55.6258) + 55.6258;
-    }
-    const randomLon = () => {
-        return Math.random() * (12.6143 - 12.5358) + 12.5358;
-    }
-    
-    const clicked = () => {
-        alert("hello")
-    }
-
-
 
 </script>
 
