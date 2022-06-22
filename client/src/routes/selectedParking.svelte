@@ -27,9 +27,10 @@ onMount( async() => {
 
 
       			  if(enddate!==null){
-      			    const edate =new Date(enddate).getHours();
-      			    const ndate =new Date().getHours();
-
+      			    const edate =new Date(enddate);
+      			    const ndate =new Date();
+                const endTime =new Date(enddate).getHours();
+      			    const nowTime =new Date().getHours();
 
                 // Check if parking endTime is from yesterday and reset it
       			    if(edate < ndate){
@@ -40,7 +41,7 @@ onMount( async() => {
 						});
       			    }else{
                     //If today , checking by hours and reset it
-                    if((edate-2) - ndate < 0 ){
+                    if((endTime-2) - nowTime < 0 ){
                       
 					  	await fetch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`, {
 							method: 'PATCH',

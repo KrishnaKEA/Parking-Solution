@@ -74,10 +74,7 @@ router.post("/api/login", authLimiter, async (req, res) => {
         }
         // Validate if user exist in our database
         const user = await User.findOne({ email });
-<<<<<<< HEAD
-=======
         
->>>>>>> 06c610435048331edcd3c33eb7b4f9c5d7e4b51a
     
         if (user && (await bcrypt.compare(password, user.password))) {
             // Create token
