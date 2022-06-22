@@ -102,6 +102,8 @@
 			<Route path="profile" component={Profile} />
 		{:else}
 			<Route path="chat" component={Login} />
+			<Route path="profile" component={Login} />
+
 		{/if}
 
 		
