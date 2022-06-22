@@ -76,6 +76,7 @@ onMount( async() => {
                 this.style.backgroundColor = "#f18888"
               }
               
+			  updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
               reserveSlot(hours,pname,slotNumber,plateNumber);
               resetSlot(hours,pname,slotNumber);
 
@@ -88,17 +89,22 @@ onMount( async() => {
            
     }
     
+    async function updateUserBalance(hours,userEmail,currentBalance){
+        await axios.patch(`${BaseUrl}/api/user/${userEmail}`, { balance: currentBalance-hours*10 });
+    }
 
     async function reserveSlot(hours,parkingName,slotNumber,plateNumber){
       
-      const response = await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
-      
+        const response = await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
+        
 
-      if(response.status === 200 && hours > 0){
-        toastr.success(`Successfully reserved slot number ${slotNumber} for ${hours} hours from now!`)
-      }else{
-        toastr.error(`Something went wrong...`)
-      }
+        if(response.status === 200 && hours > 0){
+			toastr.success(`-${hours*10} deducted from your balance`)
+          	toastr.success(`Successfully reserved slot number ${slotNumber} for ${hours} hours from now!`)
+		  
+        }else{
+          toastr.error(`Something went wrong...`)
+        }
       
        
     }

@@ -10,7 +10,7 @@ authenticated.subscribe(a => auth = a);
 
 </script>
 
-<aside class="fixed max-w-5xl mx-auto h-full bg-gray-200 border-r-2 shadow-lg" class:open>
+<aside class="z-10 fixed max-w-5xl mx-auto h-full bg-gray-200 border-r-2 shadow-lg" class:open>
 <nav class="p-12 text-xl">
 
 

@@ -25,8 +25,10 @@
 
 </script>
 
-<!-- component -->
+<!-- tailwind stuff -->
 <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
+
+<!-- get direction icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- ====== Cards Section Start -->
