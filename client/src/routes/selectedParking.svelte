@@ -33,11 +33,20 @@ onMount( async() => {
 
                 // Check if parking endTime is from yesterday and reset it
       			    if(edate < ndate){
-      			        await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+						await fetch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`, {
+							method: 'PATCH',
+							headers: {'Content-Type': 'application/json'},
+							credentials: 'include'
+						});
       			    }else{
                     //If today , checking by hours and reset it
                     if((edate-2) - ndate < 0 ){
-                      await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
+                      
+					  	await fetch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`, {
+							method: 'PATCH',
+							headers: {'Content-Type': 'application/json'},
+							credentials: 'include'
+						});
                     }
                 }
       			  }
