@@ -48,8 +48,7 @@ onMount( async() => {
 });
      
     function changeColor() {
-          const bgcolor = this.style.backgroundColor;
-          console.log(bgcolor);
+         
           
             let name = this.innerText;
            
@@ -69,16 +68,16 @@ onMount( async() => {
               }
               let hours = Number(input);
               hours = Math.floor(hours);
-              console.log(hours);   
+      
             
               if(hours != 0){
                 this.disabled = true
                 this.style.backgroundColor = "#f18888"
               }
               
-			        updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
-              reserveSlot(hours,pname,slotNumber,plateNumber);
-              resetSlot(hours,pname,slotNumber);
+				updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
+              	reserveSlot(hours,pname,slotNumber,plateNumber);
+              	resetSlot(hours,pname,slotNumber);
 
             }else{
               toastr.warning("Please log in..")

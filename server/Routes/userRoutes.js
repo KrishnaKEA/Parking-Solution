@@ -8,18 +8,8 @@ import nodemailer from "nodemailer"
 import { authLimiter, verifyToken, adminOnly } from "../middleware.js";
 
 
-let authenticatedUser = null;
 
-/*
-function checkValidUser(req, res, next) {
-  if (authenticatedUser!=null){
-    next();
-  }
-     else {
-        res.send({ message: `You don't have permission to enter` });
-    }
-}
-*/
+
 // Get all users
 router.get("/api/users", adminOnly, async (req, res) => {
     try {
@@ -97,7 +87,7 @@ router.post("/api/login", authLimiter, async (req, res) => {
                 
             })
     
-            // user
+            
             return res.status(200).json(user);
         }
         return res.status(400).send("Invalid Credentials");

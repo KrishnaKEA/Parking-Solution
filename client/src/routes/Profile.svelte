@@ -1,7 +1,6 @@
 <script>
 
     import { allParkingAreas, authenticatedUser, BaseUrl } from "../store/parkingdata.js";
-    import axios from "axios";
 
     let parkings = $allParkingAreas;
     
@@ -58,8 +57,7 @@
     }
     
     
-    
-    console.log(mySlots);
+
     
     
 </script>

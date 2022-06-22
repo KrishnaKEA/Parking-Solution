@@ -1,6 +1,6 @@
 <script>
   import { Router, Link, Route } from 'svelte-routing';
-  import {BaseUrl, authenticated, authenticatedUser} from "../../store/parkingdata.js";
+  import {BaseUrl, authenticated } from "../../store/parkingdata.js";
   import { logout } from "../../store/utils.js";
   
   let auth = false;

@@ -18,8 +18,6 @@
    const viewDetails = () => {
 
       selectedParkingArea.set(parkingAreaInfo);
-      console.log($selectedParkingArea);
-      console.log($selectedParkingArea.slot);
      
    }
 

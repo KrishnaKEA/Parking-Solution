@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from 'svelte';
     import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
     import { BaseUrl, allParkingAreas } from '../../store/parkingdata.js';

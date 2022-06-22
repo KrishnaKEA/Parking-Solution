@@ -86,7 +86,6 @@ const adminOnly = (req, res, next) => {
 
         // Checking if admin
         if( !(req.user.email === "adrian.nk52x@gmail.com" || req.user.email === "krishnaamen@gmail.com" || req.user.email === "ofarah25@gmail.com" ) ){
-            console.log("no access");
             return res.status(401).send("Access Denied");
         }  
         next();
