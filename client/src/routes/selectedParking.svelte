@@ -76,7 +76,7 @@ onMount( async() => {
                 this.style.backgroundColor = "#f18888"
               }
               
-			  updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
+			        updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
               reserveSlot(hours,pname,slotNumber,plateNumber);
               resetSlot(hours,pname,slotNumber);
 
@@ -88,34 +88,46 @@ onMount( async() => {
            
            
     }
-    
-    async function updateUserBalance(hours,userEmail,currentBalance){
-        await axios.patch(`${BaseUrl}/api/user/${userEmail}`, { balance: currentBalance-hours*10 });
+
+    const updateUserBalance = async (hours,userEmail,currentBalance) => {
+        await fetch(`${BaseUrl}/api/user/${userEmail}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({
+            balance: currentBalance-hours*10
+        })
+        });
     }
 
-    async function reserveSlot(hours,parkingName,slotNumber,plateNumber){
-      
-        const response = await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`)    
-        
+	const reserveSlot = async (hours,parkingName,slotNumber,plateNumber) => {
+        const response = await fetch(`${BaseUrl}/api/parkingarea/reservation/${slotNumber}/${parkingName}/${hours}/${plateNumber}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include'
+        });
 
-        if(response.status === 200 && hours > 0){
+		if(response.status === 200 && hours > 0){
 			toastr.success(`-${hours*10} deducted from your balance`)
           	toastr.success(`Successfully reserved slot number ${slotNumber} for ${hours} hours from now!`)
 		  
         }else{
           toastr.error(`Something went wrong...`)
         }
-      
-       
+    }
+
+
+	const resetSlot = async (hours,parkingName,slotnumber) => {
+		setTimeout(async()=>{
+			await fetch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`, {
+			method: 'PATCH',
+			headers: {'Content-Type': 'application/json'},
+			credentials: 'include'
+			});
+		},hours*3600000)	
     }
    
-   
-    async function resetSlot(hours,parkingName,slotnumber){
-        setTimeout(async()=>{
-            const res =  await axios.patch(`${BaseUrl}/api/parkingarea/reservation/${slotnumber}/${parkingName}`)
-          console.log(res);
-        },hours*3600000)
-    }
+
 
 </script>
 

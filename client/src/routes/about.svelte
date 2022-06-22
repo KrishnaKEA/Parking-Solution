@@ -11,7 +11,7 @@
       <!-- svelte-ignore a11y-distracting-elements -->
       <marquee><h2 class="font-bold text-blue-900">Don't know where to park your car? Use our service and stay relaxed.</h2></marquee>
       <hr>
-      <div class="mt-5 p-3 hover:shadow-lg border-grey-300 border">
+      <div class="mt-5 hover:shadow-lg border-grey-300 border text-left pl-14 py-3">
         <p class="mt-2 text-xl leading-8 text-black font-digits">1-Reservation</p>
         <p class="mt-2 text-xl leading-8 text-black font-digits">2-Search by Address,zipcode,area</p>
         <p class="mt-2 text-xl leading-8 text-black font-digits">3-Real time availability view of our parkings</p>

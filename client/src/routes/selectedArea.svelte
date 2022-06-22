@@ -2,11 +2,12 @@
 import { selectedArea, searchKeyword } from '../store/parkingdata.js';
 import CardParkingArea from "../components/card-parkingArea.svelte";
 import Spinner from '../components/Spinner.svelte';
-
+import SearchBar from '../components/SearchBar.svelte';
    
 
 </script>
 
+<SearchBar/>
 
 <section class=" pt-5 lg:pt-[100px] pb-5 lg:pb-5">
     <div class=" my-0 max-w-5xl mx-auto">

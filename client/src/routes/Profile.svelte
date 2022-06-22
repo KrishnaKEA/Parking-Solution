@@ -45,8 +45,16 @@
         return formated_date_time;
     }              
     
+    
     const updateUserBalance = async (userEmail,currentBalance,inputCredit) => {
-        await axios.patch(`${BaseUrl}/api/user/${userEmail}`, { balance: currentBalance+inputCredit });
+        await fetch(`${BaseUrl}/api/user/${userEmail}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({
+            balance: currentBalance+inputCredit
+        })
+        });
     }
     
     

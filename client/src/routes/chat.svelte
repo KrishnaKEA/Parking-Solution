@@ -6,29 +6,9 @@
 
 
 
-    let someData;
-    
-    socket.on("changeColor", ({ data, key }) => {
-        // you shouldn't use document in Svelte or any web framework. Do it the Svelte way. 
-        document.body.style.backgroundColor = data;
-        someData = key;
-    });
-    
-    function socketColor(event) {
-        socket.emit("colorChanged", { data: event.target.value });
-    }
-
-
-
-    
-    
-
     let messages = [$chatMessagesArray];
     let message = ''
 
-
-
-    console.log($chatMessagesArray);
 
 
     socket.on('chat message', (data) => {
@@ -60,14 +40,11 @@
   
   <main>
 
-    <div>anything: { someData }</div>
-<input type="color" on:change={socketColor} />
-
-
+  
 
     <div class="flex justify-center items-center h-screen">
       <div class="flex flex-col w-5/12 bg-slate-900 px-8 py-8 rounded-lg">
-        <h1 class="mb-4 font-bold text-gray-50 text-4xl text-center">Chat Application</h1>
+        <h1 class="font-parkingTitle mb-4 font-bold text-black-500 text-4xl text-center mb-3">Chat</h1>
         <div class="w-full mb-4 bg-gray-300 rounded-md px-4 py-4">
             
 
