@@ -5,7 +5,7 @@ import User from "../Model/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer"
-import { verifyToken, adminOnly } from "../middleware.js";
+import { authLimiter, verifyToken, adminOnly } from "../middleware.js";
 
 
 let authenticatedUser = null;
@@ -73,7 +73,7 @@ router.post("/api/register", async (req, res) => {
 
 
 // Login
-router.post("/api/login", async (req, res) => {
+router.post("/api/login", authLimiter, async (req, res) => {
     try {
         // Get user input
         const { email, password } = req.body;

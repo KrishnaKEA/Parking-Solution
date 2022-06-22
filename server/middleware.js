@@ -1,5 +1,18 @@
+import rateLimit from "express-rate-limit";
 import jwt from "jsonwebtoken";
 import User from "./Model/user.js";
+
+
+//Limit requests for /login 
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 6, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+
+});
+
+
 
 const verifyToken = (req, res, next) => {
     const cookie = req.cookies["jwt-OAK"];
@@ -88,4 +101,4 @@ const adminOnly = (req, res, next) => {
 
 
 
-  export { verifyToken, verifyPlateNumber, adminOnly };
+  export { verifyToken, verifyPlateNumber, adminOnly, authLimiter };
