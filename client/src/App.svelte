@@ -9,6 +9,7 @@
 	import Footer from './components/footer.svelte';
 	import SelectedParking from './routes/selectedParking.svelte';
 	import SelectedArea from './routes/selectedArea.svelte';
+	import About from './routes/about.svelte'
 
 	import {BaseUrl, authenticated, authenticatedUser, allParkingAreas} from "./store/parkingdata.js";
 
@@ -89,6 +90,8 @@
 		<Route path="login" component={Login} />
 		<Route path="logout" component={Signup} />
 		<Route path="signup" component={Signup} />
+		<Route path="about" component={About} />
+
 
 		<Route path="parkings/:area" component={SelectedArea} />
 		<Route path="parkingslots" component={SelectedParking} />
