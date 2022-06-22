@@ -19,9 +19,6 @@
 </style>
 
 
-<!-- This is an example component -->
-<!-- Removed/default properties: max-w-2xl mx-auto -->
-<!-- Added properties: my-20 (margin top+bottom) -->
 <div class="container ">
 	<div class="my-20 max-w-5xl  mx-auto">
 	

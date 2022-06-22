@@ -4,7 +4,7 @@ import express from "express";
 
 
 const app = express();
-//import md5 from 'md5';
+
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -51,12 +51,8 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
-
-import http from "http";
-const server = http.createServer(app);
-
 import { Server } from "socket.io";
-//const io = new Server(5000);
+
 
 const io = new Server(5000,{
   cors: {
@@ -68,6 +64,8 @@ const io = new Server(5000,{
 
 
 io.on('connection', (socket) => {
+
+  
   socket.on('chat message', (msg, username) => {
     
     let dataToSend = username+": "+msg
@@ -79,23 +77,6 @@ io.on('connection', (socket) => {
 
 
 
-
-
-
-
-
-const key = "keyword";
-
-io.on("connection", (socket) => {
-
-  console.log("New connection...");
-
-  socket.on("colorChanged", ({ data }) => {
-    console.log(data);
-    io.emit("changeColor", { data, key });
-  });
-
-});
 
 
 app.listen(process.env.PORT, () => {

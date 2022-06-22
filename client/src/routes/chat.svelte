@@ -1,6 +1,5 @@
 <script>
     import io from 'socket.io-client'
-    import { onMount } from 'svelte'; 
     import { chatMessagesArray, authenticatedUser } from "../store/parkingdata.js";
     const socket = io("http://localhost:5000")
 
