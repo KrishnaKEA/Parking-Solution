@@ -2,7 +2,7 @@ import Router from "express";
 const router = Router();
 
 import ParkingArea from "../Model/parkingArea.js";
-
+import { verifyPlateNumber, adminOnly } from "../middleware.js";
 
 //Get all parking Areas
 router.get("/api/parkingarea", async (req, res) => {
@@ -37,9 +37,7 @@ router.get("/api/parkingarea/:key", async (req, res) => {
 });
 
 // Reserving a parking slot
-router.patch(
-  "/api/parkingarea/reservation/:slotNumber/:name/:hour/:plateNr",
-  async (req, res) => {
+router.patch("/api/parkingarea/reservation/:slotNumber/:name/:hour/:plateNr", verifyPlateNumber, async (req, res) => {
     try {
       const slotNumber = Number(req.params.slotNumber);
       const name = req.params.name;
@@ -73,16 +71,7 @@ router.patch(
           break;
         }
       }
-      /*
 
-      setTimeout(()=>{
-        slot[slotNumber-1].startTime = null;
-        slot[slotNumber-1].endTime = null;
-        slot[slotNumber-1].isFree = true;
-        Object.assign(parking, slot);
-        parking.save();
-        },milliseconds)
-*/
       Object.assign(parking, slot);
       parking.save();
 
@@ -95,7 +84,7 @@ router.patch(
 );
 
 // Admin // Create a Parking Area
-router.post("/api/parkingarea", async (req, res) => {
+router.post("/api/parkingarea", adminOnly, async (req, res) => {
   try {
     const { name, location, lat, lon, slot } = req.body;
 
@@ -115,7 +104,7 @@ router.post("/api/parkingarea", async (req, res) => {
 });
 
 // Admin // Create slots for a specific Parking Area
-router.patch("/api/parkingarea/:name/:slots", async (req, res) => {
+router.patch("/api/parkingarea/:name/:slots", adminOnly, async (req, res) => {
   try {
     const name = req.params.name;
     const slots = Number(req.params.slots);
@@ -144,9 +133,7 @@ router.patch("/api/parkingarea/:name/:slots", async (req, res) => {
 //***************************************************************************
 
 // Reset parking slot (reset time)
-router.patch(
-  "/api/parkingarea/reservation/:slotNumber/:name",
-  async (req, res) => {
+router.patch("/api/parkingarea/reservation/:slotNumber/:name", adminOnly, async (req, res) => {
     try {
       const slotNumber = Number(req.params.slotNumber);
       const name = req.params.name;

@@ -5,6 +5,8 @@ import User from "../Model/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer"
+import { verifyToken, adminOnly } from "../middleware.js";
+
 
 let authenticatedUser = null;
 
@@ -19,7 +21,7 @@ function checkValidUser(req, res, next) {
 }
 */
 // Get all users
-router.get("/api/users", async (req, res) => {
+router.get("/api/users", adminOnly, async (req, res) => {
     try {
         const users = await User.find()
         res.status(200).json({total_users: users.length, users : users}) 
@@ -137,7 +139,7 @@ router.get("/api/user", async (req, res) => {
 });
 
 // Update user
-router.patch("/api/user/:email", async (req, res) => {
+router.patch("/api/user/:email", verifyToken, async (req, res) => {
     try {
         const email = req.params.email
        
