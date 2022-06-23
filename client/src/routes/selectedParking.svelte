@@ -1,7 +1,6 @@
 <script>
 import {selectedParkingArea } from "../store/parkingdata.js";
 import { onMount } from 'svelte';
-import axios from "axios";
 import {BaseUrl, authenticatedUser, allParkingAreas} from "../store/parkingdata.js";
 import toastr from "toastr";  
 
@@ -85,7 +84,7 @@ onMount( async() => {
                 this.style.backgroundColor = "#f18888"
               }
               
-				updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
+				        updateUserBalance(hours, $authenticatedUser.email, $authenticatedUser.balance);
               	reserveSlot(hours,pname,slotNumber,plateNumber);
               	resetSlot(hours,pname,slotNumber);
 
